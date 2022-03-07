@@ -1,207 +1,132 @@
-<!-- PROJECT LOGO -->
-<br />
 <div align="center">
   <a href="https://github.com/tszhong0411/friend-quiz">
     <img src="./public/static/images/avatar.png" alt="Logo" width="80" height="80">
   </a>
-
   <h3 align="center">好友問卷作弊器</h3>
-
   <p align="center">
     使用我們的好友問卷作弊器可以輕鬆知道好友問卷上的答案
   </p>
-
   <hr />
+  <p align="center">
+  <img src="https://socialify.git.ci/TszHong0411/friend-quiz/image?description=1&font=KoHo&forks=1&issues=1&logo=https%3A%2F%2Fraw.githubusercontent.com%2FTszHong0411%2Ffriend-quiz%2Fmain%2Fpublic%2Fstatic%2Fimages%2Favatar.png&name=1&owner=1&pattern=Signal&pulls=1&stargazers=1&theme=Dark"  alt="Banner">
+  </p>
 </div>
-
-<!-- TABLE OF CONTENTS -->
 <details>
-  <summary>Table of Contents</summary>
+  <summary>目錄</summary>
   <ol>
     <li>
-      <a href="#about-the-project">About The Project</a>
+      <a href="#關於這個項目">關於這個項目</a>
       <ul>
-        <li><a href="#built-with">Built With</a></li>
+        <li><a href="#建立">建立</a></li>
       </ul>
     </li>
     <li>
-      <a href="#getting-started">Getting Started</a>
+      <a href="#開始">開始</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#先決條件">先決條件</a></li>
+        <li><a href="#安裝">安裝</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <li><a href="#路線圖">路線圖</a></li>
+    <li><a href="#貢獻">貢獻</a></li>
+    <li><a href="#許可">許可</a></li>
+    <li><a href="#聯絡">聯絡</a></li>
   </ol>
 </details>
 
 <!-- ABOUT THE PROJECT -->
 
-## About The Project
+## 關於這個項目
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<p align="center">
+  <img src="./public/static/images/screenshot/2022-03-08_03-26-38.png">
+</p>
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+我在 Instagram 上經常看見朋友發的好友問卷連結，我就想我能不能破解它，當我按下 <kbd>F12</kbd> 後有趣的事情發生了。
 
-Here's why:
+原因:
 
-- Your time should be focused on creating something amazing. A project that solves a problem and helps others
-- You shouldn't be doing the same tasks over and over like creating a README from scratch
-- You should implement DRY principles to the rest of your life :smile:
+- 純粹好玩
+- 能幫到別人 (?
+- 練習我的 react, typescript, next.js
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
+### 建立
 
-Use the `BLANK_README.md` to get started.
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-### Built With
-
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+這部分展示了我在項目中用到的技術
 
 - [Next.js](https://nextjs.org/)
-- [React.js](https://reactjs.org/)
-- [Vue.js](https://vuejs.org/)
-- [Angular](https://angular.io/)
-- [Svelte](https://svelte.dev/)
-- [Laravel](https://laravel.com)
-- [Bootstrap](https://getbootstrap.com)
-- [JQuery](https://jquery.com)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
+- [Stitches](https://stitches.dev/)
+- [Puppeteer](https://github.com/puppeteer/puppeteer)
+- [React-toastify](https://github.com/fkhadra/react-toastify)
+- [Husky](https://github.com/typicode/husky)
 
 <!-- GETTING STARTED -->
 
-## Getting Started
+## 開始
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+這是一個關於如何在本地設置項目的說明的示例。
+要啟動並運行本地 clone，請按照以下簡單示例步驟操作。
 
-### Prerequisites
+### 先決條件
 
-This is an example of how to list things you need to use the software and how to install them.
+安裝最新的 npm
 
 - npm
   ```sh
   npm install npm@latest -g
   ```
 
-### Installation
+### 安裝
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone 這個 repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/tszhong0411/friend-quiz.git
    ```
-3. Install NPM packages
+2. 安裝 NPM 包
    ```sh
    npm install
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API'
+3. 本地運行
+   ```sh
+   npm run dev
    ```
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+## 路線圖
 
-<!-- USAGE EXAMPLES -->
-
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-<!-- ROADMAP -->
-
-## Roadmap
-
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
+- [x] Support holaquiz
+- [x] Support hellomate
+- [x] Support buddymojo
+- [x] Support bakequiz
 - [ ] Multi-language Support
   - [ ] Chinese
-  - [ ] Spanish
+  - [ ] English
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#top">back to top</a>)</p>
+請參閱 [open issues](https://github.com/tszhong0411/friend-quiz/issues) 以獲取建議功能（和已知問題）的完整列表。
 
 <!-- CONTRIBUTING -->
 
-## Contributing
+## 貢獻
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+貢獻使開源社區成為學習、啟發和創造的絕佳場所。您所做的任何貢獻都**非常感謝**。
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
+如果你有一個可以讓這變得更好的建議，請 fork 和 [Pull request](https://github.com/TszHong0411/friend-quiz/pulls) 創建一個拉取請求。您也可以簡單地打開帶有 "增強" 標籤的問題。
+別忘了給項目 Star！再次感謝！
 
 1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#top">back to top</a>)</p>
+2. Commit your Changes (`git commit -m 'Add some features'`)
+3. Push to the Branch (`git push origin main`)
+4. Open a Pull Request
 
 <!-- LICENSE -->
 
-## License
+## 許可
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#top">back to top</a>)</p>
+根據 MIT 許可證分發。有關更多信息，請參閱 [LICENSE](https://github.com/TszHong0411/friend-quiz/blob/main/LICENSE)。
 
 <!-- CONTACT -->
 
-## Contact
+## 聯絡
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+小康 - [@tszhong0411](https://www.instagram.com/tszhong0411/) - info@honghong.me
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-<!-- ACKNOWLEDGMENTS -->
-
-## Acknowledgments
-
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
-- [Choose an Open Source License](https://choosealicense.com)
-- [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-- [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-- [Malven's Grid Cheatsheet](https://grid.malven.co/)
-- [Img Shields](https://shields.io)
-- [GitHub Pages](https://pages.github.com)
-- [Font Awesome](https://fontawesome.com)
-- [React Icons](https://react-icons.github.io/react-icons/search)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: images/screenshot.png
+項目連結: [https://github.com/tszhong0411/friend-quiz](https://github.com/tszhong0411/friend-quiz)
