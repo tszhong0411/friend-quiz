@@ -76,7 +76,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         res.json(quizAnswer)
       })
     } catch (error) {
-      res.status(404).send({ status: 404 })
+      res.status(404).send(error)
+      console.log(error)
     }
   }
 }
