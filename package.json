@@ -9,7 +9,8 @@
     "lint": "eslint --ignore-path .gitignore \"**/*.+(ts|js|tsx)\"",
     "format": "prettier --ignore-path .gitignore \"**/*.+(ts|js|tsx)\" --write",
     "postinstall": "husky install",
-    "commit": "cz"
+    "commit": "cz",
+    "dev:local": "vercel dev"
   },
   "lint-staged": {
     "./src/**/*.{ts,js,jsx,tsx}": [
@@ -20,14 +21,17 @@
   "dependencies": {
     "@fontsource/noto-sans-tc": "4.5.4",
     "@stitches/react": "1.2.7",
+    "chrome-aws-lambda": "10.1.0",
     "framer-motion": "6.2.8",
     "next": "12.1.0",
     "next-themes": "0.1.1",
+    "playwright-core": "1.19.2",
     "puppeteer": "13.5.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-loader-spinner": "6.0.0-0",
-    "react-toastify": "8.2.0"
+    "react-toastify": "8.2.0",
+    "request": "2.88.2"
   },
   "devDependencies": {
     "@commitlint/cli": "16.2.1",

@@ -1,7 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import puppeteer from 'puppeteer'
+import request from 'request'
+import chromium from 'chrome-aws-lambda'
 
-import { buddymojoAPI } from '@/lib/buddymojoAPI'
+import { buddymojoAPI } from '../lib/buddymojoAPI'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { url } = req.query
@@ -14,7 +15,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const apiID = buddymojoAPI(formattedURL.split('.')[0])
       // * 取得 問卷 id
       const getQuizId = async () => {
-        const browser = await puppeteer.launch()
+        const browser = await chromium.puppeteer.launch()
         const page = await browser.newPage()
         await page.goto(url.toString())
         const quizId = await page.evaluate('userQuizId')
@@ -29,16 +30,22 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const apiURL = `https://buddymojo.com/api/v1/quiz/${apiID}?userQuizId=${quizId}&type=friend&stats=1`
 
       // * 返回數據
-      return new Promise<void>((resolve) => {
-        fetch(apiURL)
-          .then((res) => res.json())
-          .then((data) => {
-            resolve()
-            res.json(data)
-          })
+      const options = {
+        method: 'GET',
+        url: apiURL,
+        headers: {},
+        formData: {
+          userFullName: 'user',
+          sync_quiz: '%E9%96%8B%E5%A7%8B',
+        },
+      }
+      request(options, function (error, response) {
+        if (error) throw new Error(error)
+        res.send(response.body)
       })
     } catch (error) {
       res.status(404).send({ status: 404 })
+      console.log(error)
     }
   }
 
@@ -55,7 +62,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     try {
       // * 取得 問卷 答案
       const getQuizAnswer = async () => {
-        const browser = await puppeteer.launch()
+        const browser = await chromium.puppeteer.launch()
         const page = await browser.newPage()
         await page.setViewport({ width: 1920, height: 1080 })
         await page.goto(url.toString())
