@@ -15,7 +15,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const apiID = buddymojoAPI(formattedURL.split('.')[0])
       // * 取得 問卷 id
       const getQuizId = async () => {
-        const browser = await chromium.puppeteer.launch()
+        const browser = await chromium.puppeteer.launch({
+          headless: false,
+          executablePath: await chromium.executablePath,
+        })
         const page = await browser.newPage()
         await page.goto(url.toString())
         const quizId = await page.evaluate('userQuizId')
@@ -62,7 +65,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     try {
       // * 取得 問卷 答案
       const getQuizAnswer = async () => {
-        const browser = await chromium.puppeteer.launch()
+        const browser = await chromium.puppeteer.launch({
+          headless: false,
+          executablePath: await chromium.executablePath,
+        })
         const page = await browser.newPage()
         await page.setViewport({ width: 1920, height: 1080 })
         await page.goto(url.toString())
