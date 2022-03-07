@@ -1,0 +1,57 @@
+{
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "start": "next start",
+    "dev": "next dev",
+    "build": "next build",
+    "type-check": "tsc",
+    "lint": "eslint --ignore-path .gitignore \"/**/*.+(ts|js|tsx)\"",
+    "format": "prettier --ignore-path .gitignore \"/**/*.+(ts|js|tsx)\" --write",
+    "postinstall": "husky install",
+    "commit": "cz"
+  },
+  "lint-staged": {
+    "./src/**/*.{ts,js,jsx,tsx}": [
+      "npm lint --fix",
+      "npm format"
+    ]
+  },
+  "dependencies": {
+    "@fontsource/noto-sans-tc": "4.5.4",
+    "@stitches/react": "1.2.7",
+    "framer-motion": "6.2.8",
+    "next": "12.1.0",
+    "next-themes": "0.1.1",
+    "puppeteer": "13.4.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-loader-spinner": "6.0.0-0",
+    "react-toastify": "8.2.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "16.2.1",
+    "@commitlint/config-conventional": "16.2.1",
+    "@types/node": "16.11.26",
+    "@types/react": "17.0.39",
+    "@types/react-dom": "17.0.11",
+    "@typescript-eslint/eslint-plugin": "5.12.1",
+    "@typescript-eslint/parser": "5.12.1",
+    "commitizen": "4.2.4",
+    "cz-conventional-changelog": "3.3.0",
+    "eslint": "8.10.0",
+    "eslint-config-next": "12.1.0",
+    "eslint-config-prettier": "8.4.0",
+    "eslint-import-resolver-typescript": "2.5.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "husky": "7.0.4",
+    "lint-staged": "12.3.4",
+    "prettier": "2.5.1",
+    "typescript": "4.5.5"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  }
+}
