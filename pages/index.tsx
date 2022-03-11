@@ -46,7 +46,7 @@ export default function Home() {
       }
 
       if (res.status === 504) {
-        toast.error('伺服器超出負起荷，請重試')
+        toast.error('伺服器超出負荷，請重試')
       }
 
       if (res.status === 200) {
@@ -134,7 +134,7 @@ export default function Home() {
           <p>
             目前伺服器不能處理超過十秒的要求 <s>(因為沒錢)</s>
           </p>
-          <p>如果十秒後沒有回應請重試</p>
+          <p>如果十秒後沒有回應，請重試</p>
         </Alert>
         <form onSubmit={(e) => submitHandler(e)}>
           {' '}
