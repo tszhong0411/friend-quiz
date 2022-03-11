@@ -66,9 +66,7 @@ export default function Home() {
         return answer.data.data.questions.map((question, index) => {
           return (
             <div key={index}>
-              <p className="mb-2 text-emerald-50 sm:text-xl">
-                {`${index + 1}. ${question.question}`}
-              </p>
+              <p className="mb-2 text-base sm:text-xl">{`${index + 1}. ${question.question}`}</p>
               <div>
                 <p className="text-base sm:text-lg">
                   {question.options[Number(question.choosenOption) - 1].content}
