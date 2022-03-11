@@ -118,8 +118,5 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
   }
 
-  return new Promise<void>((resolve) => {
-    resolve()
-    res.status(404).end({ error: "Can't get Answer" })
-  })
+  return res.status(404).json({ error: "Can't get Answer" })
 }
