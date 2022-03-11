@@ -9,8 +9,7 @@
     "lint": "next lint --fix --dir pages --dir components --dir lib",
     "format": "prettier --write \"./**/*.{js,jsx,ts,tsx}\"",
     "postinstall": "husky install",
-    "commit": "cz",
-    "dev:local": "vercel dev"
+    "commit": "cz"
   },
   "dependencies": {
     "@emotion/react": "11.8.2",
