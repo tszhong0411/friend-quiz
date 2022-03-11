@@ -8,6 +8,7 @@ import { buddymojoAPI } from '../lib/buddymojoAPI'
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { url } = req.query
   const formattedURL = url.toString().replace('https://', '').replace('http://', '')
+  const isProduction = process.env.NODE_ENV === 'production'
 
   // * buddymojo
   if (formattedURL.includes('buddymojo.com')) {
@@ -18,9 +19,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const getQuizId = async () => {
         const browser = await chromium.puppeteer.launch({
           args: chromium.args,
-          executablePath:
-            'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe' ||
-            (await chromium.executablePath),
+          executablePath: !isProduction
+            ? 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
+            : await chromium.executablePath,
           headless: false,
         })
         const page = await browser.newPage()
@@ -71,9 +72,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const getQuizAnswer = async () => {
         const browser = await puppeteer.launch({
           args: chromium.args,
-          executablePath:
-            'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe' ||
-            (await chromium.executablePath),
+          executablePath: !isProduction
+            ? 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
+            : await chromium.executablePath,
           headless: true,
         })
         const page = await browser.newPage()
