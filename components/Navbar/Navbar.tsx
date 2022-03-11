@@ -1,7 +1,5 @@
 import { useState } from 'react'
 
-import { Flex } from '@/components//Flex'
-import { Box } from '@/components/Box'
 import Link from '@/components/Link'
 import Logo from '@/components/Logo'
 import { MobileNav } from '@/components/Navbar'
@@ -18,48 +16,29 @@ export const Navbar = () => {
   const [navShow, setNavShow] = useState(false)
 
   return (
-    <Box as="header" css={{ backgroundColor: '$honghong-colors-header' }}>
-      <Flex
-        justifyContent={'between'}
-        alignItems={'center'}
-        css={{ maxWidth: '$max-w-4xl', mx: 'auto', py: '$2', px: '$5' }}
-      >
-        <Flex
-          alignItems={'center'}
-          css={{
-            gapX: '$6',
-          }}
-        >
-          <Box>
-            <Logo size={20} />
-          </Box>
-          <Flex
-            as="ul"
-            alignItems={'center'}
-            css={{
-              display: 'none',
-              '@sm': {
-                display: 'flex',
-              },
-            }}
-          >
+    <header>
+      <div className="flex items-center justify-between max-w-4xl px-6 py-2 mx-auto">
+        <div className="flex items-center gap-x-8">
+          <div>
+            <Link href={'/'}>
+              <Logo size={20} />
+            </Link>
+          </div>
+          <ul className="items-center hidden sm:flex">
             {NavItem.map((item) => (
               <li key={item.name}>
-                <Link
-                  href={item.href}
-                  css={{ fontWeight: 500, '&:hover': { color: '$honghong-colors-brand' } }}
-                >
+                <Link href={item.href} className="font-medium hover:text-brand">
                   {item.name}
                 </Link>
               </li>
             ))}
-          </Flex>
-        </Flex>
-        <Flex alignItems={'center'}>
+          </ul>
+        </div>
+        <div className="flex items-center">
           <ThemeSwitch />
           <MobileNav navShow={navShow} setNavShow={setNavShow} />
-        </Flex>
-      </Flex>
-    </Box>
+        </div>
+      </div>
+    </header>
   )
 }

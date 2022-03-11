@@ -55,7 +55,7 @@
 這部分展示了我在項目中用到的技術
 
 - [Next.js](https://nextjs.org/)
-- [Stitches](https://stitches.dev/)
+- [Tailwindcss](https://tailwindcss.com/)
 - [Puppeteer](https://github.com/puppeteer/puppeteer)
 - [React-toastify](https://github.com/fkhadra/react-toastify)
 - [Husky](https://github.com/typicode/husky)

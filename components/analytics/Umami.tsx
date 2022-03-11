@@ -6,7 +6,7 @@ const UmamiScript = () => {
       <Script
         async
         defer
-        data-website-id="93f723af-c96e-4469-9851-06f807f83236"
+        data-website-id="e1e23abc-a33d-438b-9621-a961221fdd51"
         src="https://umami.honghong.me/umami.js"
       />
     </>

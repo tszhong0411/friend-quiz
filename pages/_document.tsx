@@ -1,13 +1,17 @@
 import Document, { Head, Html, Main, NextScript } from 'next/document'
 
-import { getCssText } from '@/lib/stitches.config'
-
 class MyDocument extends Document {
   render() {
     return (
       <Html lang="zh-TW" className="scroll-smooth">
         <Head>
-          <style id="stitches" dangerouslySetInnerHTML={{ __html: getCssText() }} />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin={'anonymous'} />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700&display=swap"
+            rel="stylesheet"
+          />
+          <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
           <link
             rel="apple-touch-icon"
             sizes="180x180"
@@ -34,7 +38,7 @@ class MyDocument extends Document {
           <meta name="theme-color" content="#ffffff" />
           <link rel="manifest" href="/static/manifest.json" />
         </Head>
-        <body>
+        <body className="bg-body text-typeface-primary dark:bg-body-dark dark:text-typeface-primary-dark">
           <Main />
           <NextScript />
         </body>

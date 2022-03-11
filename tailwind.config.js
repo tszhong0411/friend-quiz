@@ -33,9 +33,7 @@ module.exports = {
         sans: ['Noto Sans TC', 'Inter', ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        'black-75': 'rgba(0,0,0,0.75)',
         body: 'rgb(251, 251, 252)',
-        brand: 'rgb(251, 81, 81)',
         'body-secondary': 'rgb(240, 241, 244)',
         'body-secondary-dark': 'rgb(30, 34, 41)',
         'body-dark': 'rgb(22, 24, 29)',
