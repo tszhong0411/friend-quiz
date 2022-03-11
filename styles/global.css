@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --emphasis: rgba(139, 140, 141, 0.08);
+  --brand: theme('colors.blue.500');
+}
+
+html.dark {
+  --emphasis: rgba(165, 165, 167, 0.08);
+  --brand: theme('colors.blue.400');
+}
+
 /* https://stackoverflow.com/questions/61083813/how-to-avoid-internal-autofill-selected-style-to-be-applied */
 input:-webkit-autofill,
 input:-webkit-autofill:focus {
@@ -21,4 +31,9 @@ input:-webkit-autofill:focus {
 
 ::-webkit-scrollbar-track {
   background: 0 0;
+}
+
+::selection {
+  background-color: var(--emphasis);
+  color: var(--brand);
 }

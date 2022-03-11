@@ -174,33 +174,73 @@ export default function Home() {
           </>
         )}
       </div>
-      <div className="mt-32 space-y-10">
+      <div className="mt-32 space-y-10 prose dark:prose-dark">
         <div>
           <h2 className="mb-4 text-2xl font-bold">支援網址</h2>
           <div>
             <ul className="space-y-3">
               {config.support_site.map((item) => (
                 <li key={item.name}>
-                  <Link
-                    href={item.href}
-                    className="duration-300 border-b-2 border-transparent hover:border-blue-500"
-                  >
-                    {item.name}
-                  </Link>
+                  <Link href={item.href}>{item.name}</Link>
                 </li>
               ))}
             </ul>
           </div>
         </div>
         <div>
-          <h2 className="mb-4 text-2xl font-bold">作者</h2>
+          <h2 className="font-bold">作者</h2>
           <div>
-            <p className="text-lg">
-              <Link
-                href="https://honghong.me"
-                className="duration-300 border-b-2 border-transparent hover:border-blue-500"
-              >
-                小康
+            <p>
+              <Link href="https://honghong.me">小康</Link>
+            </p>
+          </div>
+        </div>
+        <div>
+          <h2 className="font-bold">貢獻</h2>
+          <div>
+            <p>貢獻使開源社區成為學習、啟發和創造的絕佳場所。您所做的任何貢獻都非常感謝。</p>
+            <p>
+              如果你有一個可以讓這變得更好的建議，請 fork 和 Pull request
+              創建一個拉取請求。您也可以簡單地打開帶有 <strong>enhancement</strong> 標籤的問題。
+              別忘了給項目 Star！再次感謝！
+            </p>
+            <ol>
+              <li>Fork the Project</li>
+              <li>
+                Commit your Changes (<code>git commit -m 'Add some features'</code>)
+              </li>
+              <li>
+                Push to the Branch (<code>git push origin main</code>)
+              </li>
+              <li>Open a Pull Request</li>
+            </ol>
+          </div>
+        </div>
+        <div>
+          <h2 className="font-bold">許可</h2>
+          <div>
+            <p>
+              根據 MIT 許可證分發。有關更多信息，請參閱{' '}
+              <Link href="https://github.com/TszHong0411/friend-quiz/blob/main/LICENSE">
+                LICENSE
+              </Link>
+            </p>
+          </div>
+        </div>
+        <div>
+          <h2 className="font-bold">聯絡</h2>
+          <div>
+            <p>
+              小康
+              {' - '}
+              <Link href="https://www.instagram.com/tszhong0411/">@tszhong0411</Link>
+              {' - '}
+              <Link href="mailto:info@honghong.me">info@honghong.me</Link>
+            </p>
+            <p>
+              項目連結:{' '}
+              <Link href="https://github.com/tszhong0411/friend-quiz">
+                https://github.com/tszhong0411/friend-quiz
               </Link>
             </p>
           </div>

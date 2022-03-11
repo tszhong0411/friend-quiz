@@ -16,7 +16,7 @@ export const Navbar = () => {
   const [navShow, setNavShow] = useState(false)
 
   return (
-    <header>
+    <header className="sticky top-0 left-0 z-50 bg-body/90 dark:bg-body-dark/90">
       <div className="flex items-center justify-between max-w-4xl px-6 py-2 mx-auto">
         <div className="flex items-center gap-x-8">
           <div>

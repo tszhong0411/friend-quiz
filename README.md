@@ -23,7 +23,6 @@
     <li>
       <a href="#開始">開始</a>
       <ul>
-        <li><a href="#先決條件">先決條件</a></li>
         <li><a href="#安裝">安裝</a></li>
       </ul>
     </li>
@@ -67,28 +66,19 @@
 這是一個關於如何在本地設置項目的說明的示例。
 要啟動並運行本地 clone，請按照以下簡單示例步驟操作。
 
-### 先決條件
-
-安裝最新的 npm
-
-- npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
 ### 安裝
 
 1. Clone 這個 repo
    ```sh
    git clone https://github.com/tszhong0411/friend-quiz.git
    ```
-2. 安裝 NPM 包
+2. 安裝 Package
    ```sh
-   npm install
+   yarn
    ```
 3. 本地運行
    ```sh
-   npm run dev
+   yarn dev
    ```
 
 ## 路線圖
@@ -109,7 +99,7 @@
 
 貢獻使開源社區成為學習、啟發和創造的絕佳場所。您所做的任何貢獻都**非常感謝**。
 
-如果你有一個可以讓這變得更好的建議，請 fork 和 [Pull request](https://github.com/TszHong0411/friend-quiz/pulls) 創建一個拉取請求。您也可以簡單地打開帶有 "增強" 標籤的問題。
+如果你有一個可以讓這變得更好的建議，請 fork 和 [Pull request](https://github.com/TszHong0411/friend-quiz/pulls) 創建一個拉取請求。您也可以簡單地打開帶有 `enhancement` 標籤的問題。
 別忘了給項目 Star！再次感謝！
 
 1. Fork the Project
