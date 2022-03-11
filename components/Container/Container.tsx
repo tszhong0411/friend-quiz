@@ -44,7 +44,7 @@ export default function Container(props) {
         <meta name="twitter:creator" content="@TszhongLai0411" />
       </Head>
       <Navbar />
-      <main className="mx-auto w-full max-w-3xl px-8 py-12 sm:px-6 xl:px-0">{children}</main>
+      <main className="w-full max-w-3xl px-4 py-12 mx-auto sm:px-6 xl:px-0">{children}</main>
       <Footer />
       <ToastContainer
         position="bottom-right"
