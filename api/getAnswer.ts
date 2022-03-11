@@ -1,6 +1,7 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
-import request from 'request'
 import chromium from 'chrome-aws-lambda'
+import type { NextApiRequest, NextApiResponse } from 'next'
+import puppeteer from 'puppeteer-core'
+import request from 'request'
 
 import { buddymojoAPI } from '../lib/buddymojoAPI'
 
@@ -16,8 +17,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       // * 取得 問卷 id
       const getQuizId = async () => {
         const browser = await chromium.puppeteer.launch({
+          args: chromium.args,
+          executablePath: process.env.CHROME_EXECUTEABLE_PATH || (await chromium.executablePath),
           headless: false,
-          executablePath: await chromium.executablePath,
         })
         const page = await browser.newPage()
         await page.goto(url.toString())
@@ -65,9 +67,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     try {
       // * 取得 問卷 答案
       const getQuizAnswer = async () => {
-        const browser = await chromium.puppeteer.launch({
-          headless: false,
-          executablePath: await chromium.executablePath,
+        const browser = await puppeteer.launch({
+          args: chromium.args,
+          executablePath: process.env.CHROME_EXECUTEABLE_PATH || (await chromium.executablePath),
+          headless: true,
         })
         const page = await browser.newPage()
         await page.setViewport({ width: 1920, height: 1080 })

@@ -1,12 +1,15 @@
-import Link from '../Link'
-import { NavItem } from '@/components/Navbar'
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Dispatch, SetStateAction } from 'react'
-import { MotionButton } from '../Button'
+
+import { css, darkTheme } from '@/lib/stitches.config'
+
+import { NavItem } from '@/components/Navbar'
+
 import { MotionNav } from './Styles'
-import { darkTheme, css } from '@/lib/stitches.config'
-import { Flex } from '../Flex'
 import { Box } from '../Box'
+import { MotionButton } from '../Button'
+import { Flex } from '../Flex'
+import Link from '../Link'
 
 interface Props {
   navShow: boolean

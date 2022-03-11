@@ -1,6 +1,7 @@
+import { css } from '@/lib/stitches.config'
+
 import { Flex } from '@/components//Flex'
 import { Box } from '@/components/Box'
-import { css } from '@/lib/stitches.config'
 
 const SocialLink = css({
   display: 'flex',

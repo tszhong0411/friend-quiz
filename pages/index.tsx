@@ -1,18 +1,20 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import Image from 'next/image'
 import { useRef, useState } from 'react'
 import { Oval } from 'react-loader-spinner'
 import { toast } from 'react-toastify'
 
-import Container from '@/components/Container'
-import { Box } from '@/components/Box'
-import { Text } from '@/components/Text'
-import { MotionButton } from '@/components/Button'
 import { darkTheme } from '@/lib/stitches.config'
-import { config } from '@/data/config'
-import Link from '@/components/Link'
-import { Flex } from '@/components/Flex'
 import { isValidHttpUrl } from '@/lib/utils/checkUrl'
-import Image from 'next/image'
+
+import { config } from '@/data/config'
+
+import { Box } from '@/components/Box'
+import { MotionButton } from '@/components/Button'
+import Container from '@/components/Container'
+import { Flex } from '@/components/Flex'
+import Link from '@/components/Link'
+import { Text } from '@/components/Text'
 
 interface Type {
   name: string

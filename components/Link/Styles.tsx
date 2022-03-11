@@ -1,5 +1,6 @@
-import { styled } from '@/lib/stitches.config'
 import Link from 'next/link'
+
+import { styled } from '@/lib/stitches.config'
 
 export const StyledLink = styled(Link, {
   transition: '0.3s',

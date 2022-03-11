@@ -1,5 +1,5 @@
-import { createStitches, createTheme, CSS as StitchesCSS } from '@stitches/react'
 import type * as Stitches from '@stitches/react'
+import { createStitches, createTheme, CSS as StitchesCSS } from '@stitches/react'
 
 /*
  * NOTE: Font weight: 100,300,400,500,700,900
@@ -461,4 +461,4 @@ export const darkTheme = createTheme({
 
 export type CSS = StitchesCSS<typeof config>
 export type { VariantProps } from '@stitches/react'
-export { config, css, getCssText, keyframes, styled, theme, globalCss }
+export { config, css, getCssText, globalCss, keyframes, styled, theme }

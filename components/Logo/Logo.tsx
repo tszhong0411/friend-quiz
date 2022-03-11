@@ -1,4 +1,5 @@
 import { styled } from '@/lib/stitches.config'
+
 import { Props } from './types'
 
 const Svg = styled('svg', {

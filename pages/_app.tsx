@@ -1,10 +1,12 @@
 import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'next-themes'
 import '@fontsource/noto-sans-tc'
-import 'react-toastify/dist/ReactToastify.css'
 
+import 'react-toastify/dist/ReactToastify.css'
 import '@/styles/global.css'
-import { theme as defaultTheme, darkTheme, globalCss } from '@/lib/stitches.config'
+
+import { darkTheme, globalCss, theme as defaultTheme } from '@/lib/stitches.config'
+
 import Analytics from '@/components/analytics'
 
 const globalStyles = globalCss({

@@ -1,10 +1,12 @@
-import { ToastContainer } from 'react-toastify'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
+import { ToastContainer } from 'react-toastify'
+
 import { styled } from '@/lib/stitches.config'
 
 import Footer from '@/components/Footer'
 import { Navbar } from '@/components/Navbar'
+
 import { Flex } from '../Flex'
 
 export default function Container(props) {

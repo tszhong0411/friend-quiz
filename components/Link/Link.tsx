@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import React from 'react'
-import { Box } from '../Box'
+
 import { StyledLink } from './Styles'
+import { Box } from '../Box'
 
 const CustomLink = (props) => {
   const { children, href, variant, ...rest } = props

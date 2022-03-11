@@ -1,11 +1,11 @@
 import { useState } from 'react'
 
-import { Box } from '@/components/Box'
-import Logo from '@/components/Logo'
 import { Flex } from '@/components//Flex'
+import { Box } from '@/components/Box'
 import Link from '@/components/Link'
-import ThemeSwitch from '@/components/ThemeSwitch'
+import Logo from '@/components/Logo'
 import { MobileNav } from '@/components/Navbar'
+import ThemeSwitch from '@/components/ThemeSwitch'
 
 export const NavItem = [
   {
