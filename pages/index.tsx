@@ -141,7 +141,7 @@ export default function Home() {
             目前伺服器不能處理超過十秒的要求 <s>(因為沒錢)</s>
           </p>
           <p>如果十秒後沒有回應，請重試</p>
-          <p>目前 hellomate 不太穩定，如失敗可重試</p>
+          <p>目前 hellomate 不太穩定，如失敗請重試</p>
         </Alert>
         <form onSubmit={(e) => submitHandler(e)}>
           {' '}
