@@ -38,7 +38,15 @@ export default function Home() {
       urlRef.current.value.includes('bakequiz.com') && setType({ name: 'bakequiz' })
       urlRef.current.value.includes('hellomate.me') && setType({ name: 'hellomate' })
 
-      const res = await fetch(`/api/getAnswer?url=${urlRef.current.value}`)
+      const res = await fetch(`/api/getAnswer`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          url: urlRef.current.value,
+        }),
+      })
 
       // * 結果
       if (res.status === 404) {
@@ -133,6 +141,7 @@ export default function Home() {
             目前伺服器不能處理超過十秒的要求 <s>(因為沒錢)</s>
           </p>
           <p>如果十秒後沒有回應，請重試</p>
+          <p>目前 hellomate 不太穩定，如失敗可重試</p>
         </Alert>
         <form onSubmit={(e) => submitHandler(e)}>
           {' '}
@@ -145,7 +154,7 @@ export default function Home() {
               className="solid border-[rgb(108, 119, 147)] focus:border-brand w-full rounded-md border-2 shadow-md outline-none duration-300 text-typeface-primary dark:text-typeface-primary-dark bg-body-secondary dark:bg-body-secondary-dark"
             />
             <motion.button
-              className="w-full h-12 my-2 text-white duration-300 bg-blue-500 rounded-md hover:bg-blue-600 sm:my-0 sm:h-12 sm:w-1/3"
+              className="w-full h-12 my-2 text-white duration-300 bg-blue-500 rounded-md hover:bg-blue-600 sm:my-0 sm:h-12 sm:w-1/3 disabled:bg-blue-800 disabled:cursor-not-allowed"
               disabled={loading}
             >
               {loading ? (

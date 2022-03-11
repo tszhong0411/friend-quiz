@@ -78,7 +78,7 @@
    ```
 3. 本地運行
    ```sh
-   yarn dev
+   yarn dev:local
    ```
 
 ## 路線圖
