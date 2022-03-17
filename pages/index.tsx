@@ -49,17 +49,12 @@ export default function Home() {
       })
 
       // * 結果
-      if (res.status === 404) {
-        toast.error('網址錯誤，請檢查後再試')
-      }
+      if (res.status === 404) toast.error('網址錯誤，請檢查後再試')
 
-      if (res.status === 504) {
-        toast.error('伺服器超出負荷，請重試')
-      }
+      if (res.status === 504) toast.error('伺服器超出負荷，請重試')
 
       if (res.status === 200) {
         const data = await res.json()
-
         setAnswer({ data })
       }
     } else {
@@ -138,7 +133,7 @@ export default function Home() {
         <Alert severity="info" className="font-sans font-medium">
           <AlertTitle className="font-sans font-medium">注意</AlertTitle>
           <p>
-            目前伺服器不能處理超過十秒的要求 <s>(因為沒錢)</s>
+            目前伺服器不能處理超過十秒的請求 <s>(因為沒錢)</s>
           </p>
           <p>如果十秒後沒有回應，請重試</p>
           <p>目前 hellomate 不太穩定，如失敗請重試</p>
