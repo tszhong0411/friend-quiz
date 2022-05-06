@@ -1,6 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import Alert from '@mui/material/Alert'
-import AlertTitle from '@mui/material/AlertTitle'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { useRef, useState } from 'react'
@@ -130,14 +128,6 @@ export default function Home() {
         <p className="my-6 text-lg font-medium text-center">
           使用我們的好友問卷作弊器可以輕鬆知道好友問卷上的答案
         </p>
-        <Alert severity="info" className="font-sans font-medium">
-          <AlertTitle className="font-sans font-medium">注意</AlertTitle>
-          <p>
-            目前伺服器不能處理超過十秒的請求 <s>(因為沒錢)</s>
-          </p>
-          <p>如果十秒後沒有回應，請重試</p>
-          <p>目前 hellomate 不太穩定，如失敗請重試</p>
-        </Alert>
         <form onSubmit={(e) => submitHandler(e)}>
           {' '}
           <div className="my-10 gap-x-4 sm:flex">
