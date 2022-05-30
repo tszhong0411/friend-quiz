@@ -1,14 +1,11 @@
 <div align="center">
-  <a href="https://github.com/tszhong0411/friend-quiz">
-    <img src="./public/static/images/avatar.png" alt="Logo" width="80" height="80">
-  </a>
   <h3 align="center">好友問卷作弊器</h3>
   <p align="center">
     使用我們的好友問卷作弊器可以輕鬆知道好友問卷上的答案
   </p>
   <hr />
   <p align="center">
-  <img src="https://socialify.git.ci/TszHong0411/friend-quiz/image?description=1&font=KoHo&forks=1&issues=1&logo=https%3A%2F%2Fraw.githubusercontent.com%2FTszHong0411%2Ffriend-quiz%2Fmain%2Fpublic%2Fstatic%2Fimages%2Favatar.png&name=1&owner=1&pattern=Signal&pulls=1&stargazers=1&theme=Dark"  alt="Banner">
+  <img src="https://socialify.git.ci/tszhong0411/friend-quiz/image?font=KoHo&forks=1&issues=1&logo=https%3A%2F%2Fhonghong.me%2Fstatic%2Fimages%2Flogo%2Flogo-black.png&name=1&owner=1&pattern=Brick%20Wall&pulls=1&stargazers=1&theme=Dark"  alt="Banner">
   </p>
 </div>
 <details>

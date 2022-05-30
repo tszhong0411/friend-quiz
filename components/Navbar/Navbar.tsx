@@ -21,7 +21,7 @@ export const Navbar = () => {
         <div className="flex items-center gap-x-8">
           <div>
             <Link href={'/'}>
-              <Logo size={20} />
+              <Logo size={25} />
             </Link>
           </div>
           <ul className="items-center hidden sm:flex">
