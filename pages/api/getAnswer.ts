@@ -6,8 +6,6 @@ const chrome = require('chrome-aws-lambda')
 const puppeteer = require('puppeteer-core')
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  console.log(process.env.AWS_EXECUTION_ENV)
-
   const brewery = async (page) => {
     await page.setRequestInterception(true)
 
@@ -123,11 +121,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         await page.goto(url.toString())
         await page.type('input[id=name]', 'user')
         await page.click('input[name=sync_quiz]')
+
         if (formattedURL.includes('hellomate.me')) {
-          await Promise.all([page.waitForNavigation(), page.reload()])
+          await Promise.all([page.reload(), page.waitForNavigation()])
         } else {
           await Promise.all([page.waitForNavigation()])
         }
+
         const quizAnswer = await page.evaluate('arrQuizDetail')
         await browser.close()
         return quizAnswer
