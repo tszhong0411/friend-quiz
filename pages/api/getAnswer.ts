@@ -6,6 +6,8 @@ const chrome = require('chrome-aws-lambda')
 const puppeteer = require('puppeteer-core')
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  console.log(process.env)
+
   const brewery = async (page) => {
     await page.setRequestInterception(true)
 
