@@ -51,6 +51,8 @@ export default function Home() {
 
       if (res.status === 504) toast.error('伺服器超出負荷，請重試')
 
+      if (res.status === 500) toast.error('伺服器發生未知錯誤，請重試')
+
       if (res.status === 200) {
         const data = await res.json()
         setAnswer({ data })
@@ -175,7 +177,7 @@ export default function Home() {
             <ul className="space-y-3">
               {config.support_site.map((item) => (
                 <li key={item.name}>
-                  <Link href={item.href}>{item.name}</Link>
+                  <Link href={item.href}>{item.name}</Link> 成功率 {item.success}%
                 </li>
               ))}
             </ul>
