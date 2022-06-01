@@ -6,6 +6,28 @@ const chrome = require('chrome-aws-lambda')
 const puppeteer = require('puppeteer-core')
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  const brewery = async (page) => {
+    await page.setRequestInterception(true)
+
+    page.on('request', (r) => {
+      if (
+        ['manifest', 'media', 'font', 'stylesheet'].indexOf(r.resourceType()) !== -1 ||
+        rejectRequestPattern.find((pattern) => r.url().match(pattern))
+      ) {
+        r.abort()
+      } else {
+        r.continue()
+      }
+    })
+  }
+
+  // * Adblock
+  const rejectRequestPattern = [
+    '/*.doubleclick.net',
+    '/*(hellomate|bakequiz).(me|com)/public/images/.*/?([a-zA-Z]+.png)',
+    '/img.(hellomate|bakequiz).(me|com)',
+  ]
+
   const url = req.body.url
   const formattedURL = url.replace('https://', '').replace('http://', '')
   // const isProduction = process.env.NODE_ENV === 'production'
@@ -31,21 +53,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 }
           )
           const page = await browser.newPage()
-          await page.setRequestInterception(true)
-
-          page.on('request', (req) => {
-            if (
-              req.resourceType() == 'stylesheet' ||
-              req.resourceType() == 'font' ||
-              req.resourceType() == 'manifest'
-            ) {
-              req.abort()
-            } else {
-              req.continue()
-            }
-          })
+          await brewery(page)
 
           await page.goto(url.toString())
+
           const quizId = await page.evaluate('userQuizId')
 
           await browser.close()
@@ -105,19 +116,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         )
         const page = await browser.newPage()
         await page.setViewport({ width: 1920, height: 1080 })
-        await page.setRequestInterception(true)
+        await brewery(page)
 
-        page.on('request', (req) => {
-          if (
-            req.resourceType() == 'stylesheet' ||
-            req.resourceType() == 'font' ||
-            req.resourceType() == 'manifest'
-          ) {
-            req.abort()
-          } else {
-            req.continue()
-          }
-        })
         await page.goto(url.toString())
         await page.type('input[id=name]', 'user')
         await page.click('input[name=sync_quiz]')
