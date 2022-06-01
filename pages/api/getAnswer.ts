@@ -27,10 +27,24 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
               : {
                   args: [],
                   executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
-                  headless: true,
+                  headless: false,
                 }
           )
           const page = await browser.newPage()
+          await page.setRequestInterception(true)
+
+          page.on('request', (req) => {
+            if (
+              req.resourceType() == 'stylesheet' ||
+              req.resourceType() == 'font' ||
+              req.resourceType() == 'manifest'
+            ) {
+              req.abort()
+            } else {
+              req.continue()
+            }
+          })
+
           await page.goto(url.toString())
           const quizId = await page.evaluate('userQuizId')
 
@@ -91,6 +105,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         )
         const page = await browser.newPage()
         await page.setViewport({ width: 1920, height: 1080 })
+        await page.setRequestInterception(true)
+
+        page.on('request', (req) => {
+          if (
+            req.resourceType() == 'stylesheet' ||
+            req.resourceType() == 'font' ||
+            req.resourceType() == 'manifest'
+          ) {
+            req.abort()
+          } else {
+            req.continue()
+          }
+        })
         await page.goto(url.toString())
         await page.type('input[id=name]', 'user')
         await page.click('input[name=sync_quiz]')
