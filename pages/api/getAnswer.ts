@@ -122,7 +122,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         await page.type('input[id=name]', 'user')
         await page.click('input[name=sync_quiz]')
         if (formattedURL.includes('hellomate.me')) {
-          await Promise.all([page.reload(), page.waitForNavigation()])
+          await Promise.all([page.waitForNavigation(), page.reload()])
         } else {
           await Promise.all([page.waitForNavigation()])
         }
