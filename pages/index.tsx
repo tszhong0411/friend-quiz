@@ -36,14 +36,8 @@ export default function Home() {
       urlRef.current.value.includes('bakequiz.com') && setType({ name: 'bakequiz' })
       urlRef.current.value.includes('hellomate.me') && setType({ name: 'hellomate' })
 
-      const res = await fetch(`/api/getAnswer`, {
+      const res = await fetch(`/api/getAnswer?url=${urlRef.current.value}`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          url: urlRef.current.value,
-        }),
       })
 
       // * 結果
@@ -53,9 +47,12 @@ export default function Home() {
 
       if (res.status === 500) toast.error('伺服器發生未知錯誤，請重試')
 
-      if (res.status === 200) {
+      if (res.status === 200 && urlRef.current.value.includes('buddymojo.com')) {
         const data = await res.json()
         setAnswer({ data })
+      } else {
+        const data = await res.json()
+        setAnswer(data)
       }
     } else {
       toast.error('請檢查網址的有效性')
@@ -81,7 +78,8 @@ export default function Home() {
       case 'holaquiz':
       case 'bakequiz':
       case 'hellomate':
-        return answer.data.questions.map((question, index) => {
+        console.log(answer)
+        return answer.questions.map((question, index) => {
           // * 格式化 DOM 結構
           const parser = new DOMParser()
           const answer = question.options.find(
@@ -177,7 +175,7 @@ export default function Home() {
             <ul className="space-y-3">
               {config.support_site.map((item) => (
                 <li key={item.name}>
-                  <Link href={item.href}>{item.name}</Link> 成功率 {item.success}%
+                  <Link href={item.href}>{item.name}</Link>
                 </li>
               ))}
             </ul>
