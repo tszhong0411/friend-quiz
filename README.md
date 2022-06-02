@@ -52,7 +52,6 @@
 
 - [Next.js](https://nextjs.org/)
 - [Tailwindcss](https://tailwindcss.com/)
-- [Puppeteer](https://github.com/puppeteer/puppeteer)
 - [React-toastify](https://github.com/fkhadra/react-toastify)
 - [Husky](https://github.com/typicode/husky)
 
