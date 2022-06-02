@@ -4,7 +4,7 @@ import { buddymojoAPI } from '@/lib/buddymojoAPI'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { url } = req.query
-  const formattedURL = url.toString().replace('https://', '').replace('http://', '')
+  const formattedURL = url.toString().trim().replace('https://', '').replace('http://', '')
 
   // * buddymojo
   if (formattedURL.includes('buddymojo.com')) {
@@ -52,8 +52,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     })
       .then((response) => response.text())
       .then((result) => {
-        res.statusCode = 200
-        res.end(result.match(/var arrQuizDetail=(.+);/)[1])
+        if (result.match(/var arrQuizDetail=(.+);/)) {
+          res.statusCode = 200
+          res.end(result.match(/var arrQuizDetail=(.+);/)[1])
+        } else {
+          res.statusCode = 404
+          res.end()
+        }
       })
   }
 }

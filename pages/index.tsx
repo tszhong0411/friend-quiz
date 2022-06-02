@@ -5,8 +5,6 @@ import { useRef, useState } from 'react'
 import { Oval } from 'react-loader-spinner'
 import { toast } from 'react-toastify'
 
-import { isValidHttpUrl } from '@/lib/utils/checkUrl'
-
 import { config } from '@/data/config'
 
 import Container from '@/components/Container'
@@ -30,7 +28,11 @@ export default function Home() {
     // * 設置 loading 狀態
     setLoading(true)
     // * 再次檢查 url 是否正確
-    if (isValidHttpUrl(urlRef.current.value)) {
+    if (
+      urlRef.current.value.match(
+        /(https|http):\/\/([a-zA-Z]+\.|)(buddymojo|holaquiz|bakequiz|hellomate).(me|com)\/(sync-quiz|match|b)\/[0-9a-zA-Z]+/
+      )
+    ) {
       urlRef.current.value.includes('buddymojo.com') && setType({ name: 'buddymojo' })
       urlRef.current.value.includes('holaquiz.com') && setType({ name: 'holaquiz' })
       urlRef.current.value.includes('bakequiz.com') && setType({ name: 'bakequiz' })
@@ -41,22 +43,25 @@ export default function Home() {
       })
 
       // * 結果
-      if (res.status === 404) toast.error('網址錯誤，請檢查後再試')
+      if (res.status === 404) toast.error('請檢查網址的有效性')
 
       if (res.status === 504) toast.error('伺服器超出負荷，請重試')
 
       if (res.status === 500) toast.error('伺服器發生未知錯誤，請重試')
 
-      if (res.status === 200 && urlRef.current.value.includes('buddymojo.com')) {
-        const data = await res.json()
-        setAnswer({ data })
-      } else {
-        const data = await res.json()
-        setAnswer(data)
+      if (res.status === 200) {
+        if (urlRef.current.value.includes('buddymojo.com')) {
+          const data = await res.json()
+          setAnswer({ data })
+        } else {
+          const data = await res.json()
+          setAnswer(data)
+        }
       }
     } else {
       toast.error('請檢查網址的有效性')
     }
+
     setLoading(false)
   }
 
@@ -78,7 +83,6 @@ export default function Home() {
       case 'holaquiz':
       case 'bakequiz':
       case 'hellomate':
-        console.log(answer)
         return answer.questions.map((question, index) => {
           // * 格式化 DOM 結構
           const parser = new DOMParser()
