@@ -1,7 +1,8 @@
+<p align="right">Lanuage: <a href="./README.zh-tw.md">中文</a> | English</p>
 <div align="center">
-  <h3 align="center">好友問卷作弊器</h3>
+  <h3 align="center">Friend Quiz Cheater</h3>
   <p align="center">
-    使用我們的好友問卷作弊器可以輕鬆知道好友問卷上的答案
+    Using our friend quiz cheater to get the full score on your friend quiz
   </p>
   <hr />
   <p align="center">
@@ -9,46 +10,46 @@
   </p>
 </div>
 <details>
-  <summary>目錄</summary>
+  <summary>Table of contents</summary>
   <ol>
     <li>
-      <a href="#關於這個項目">關於這個項目</a>
+      <a href="#about-the-project">About the project</a>
       <ul>
-        <li><a href="#建立">建立</a></li>
+        <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
     <li>
-      <a href="#開始">開始</a>
+      <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#安裝">安裝</a></li>
+        <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#路線圖">路線圖</a></li>
-    <li><a href="#貢獻">貢獻</a></li>
-    <li><a href="#許可">許可</a></li>
-    <li><a href="#聯絡">聯絡</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
 
 <!-- ABOUT THE PROJECT -->
 
-## 關於這個項目
+## About the project
 
 <p align="center">
   <img src="./public/static/images/screenshot/2022-03-08_03-26-38.png">
 </p>
 
-我在 Instagram 上經常看見朋友發的好友問卷連結，我就想我能不能破解它，當我按下 <kbd>F12</kbd> 後有趣的事情發生了。
+I often see a link to a friend quiz from a friend on Instagram, and I wonder if I can hack it, and something interesting happens when I press <kbd>F12</kbd>.
 
-原因:
+Reasons:
 
-- 純粹好玩
-- 能幫到別人 (?
-- 練習我的 react, typescript, next.js
+- Just fun
+- Can help others (?
+- Practice my react, typescript, next.js
 
-### 建立
+### Built with
 
-這部分展示了我在項目中用到的技術
+This part shows the techniques I used in the project
 
 - [Next.js](https://nextjs.org/)
 - [Tailwindcss](https://tailwindcss.com/)
@@ -57,27 +58,26 @@
 
 <!-- GETTING STARTED -->
 
-## 開始
+## Getting started
 
-這是一個關於如何在本地設置項目的說明的示例。
-要啟動並運行本地 clone，請按照以下簡單示例步驟操作。
+This is an example of how you may give instructions on setting up your project locally. To get a local copy up and running follow these simple example steps.
 
-### 安裝
+### Installation
 
-1. Clone 這個 repo
+1. Clone this repo
    ```sh
    git clone https://github.com/tszhong0411/friend-quiz.git
    ```
-2. 安裝 Package
+2. Install Package
    ```sh
    yarn
    ```
-3. 本地運行
+3. Run locally
    ```sh
    yarn dev
    ```
 
-## 路線圖
+## Roadmap
 
 - [x] Support holaquiz
 - [x] Support hellomate
@@ -87,16 +87,15 @@
   - [ ] Chinese
   - [ ] English
 
-請參閱 [open issues](https://github.com/tszhong0411/friend-quiz/issues) 以獲取建議功能（和已知問題）的完整列表。
+See the [open issues](https://github.com/tszhong0411/friend-quiz/issues) for a full list of proposed features (and known issues).
 
 <!-- CONTRIBUTING -->
 
-## 貢獻
+## Contributing
 
-貢獻使開源社區成為學習、啟發和創造的絕佳場所。您所做的任何貢獻都**非常感謝**。
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
 
-如果你有一個可以讓這變得更好的建議，請 fork 和 [Pull request](https://github.com/TszHong0411/friend-quiz/pulls) 創建一個拉取請求。您也可以簡單地打開帶有 `enhancement` 標籤的問題。
-別忘了給項目 Star！再次感謝！
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag `enhancement`. Don't forget to give the project a star! Thanks again!
 
 1. Fork the Project
 2. Commit your Changes (`git commit -m 'Add some features'`)
@@ -105,14 +104,14 @@
 
 <!-- LICENSE -->
 
-## 許可
+## License
 
-根據 MIT 許可證分發。有關更多信息，請參閱 [LICENSE](https://github.com/TszHong0411/friend-quiz/blob/main/LICENSE)。
+Distributed under the MIT License. See [LICENSE](https://github.com/TszHong0411/friend-quiz/blob/main/LICENSE) for more information.
 
 <!-- CONTACT -->
 
-## 聯絡
+## Contact
 
 小康 - [@tszhong0411](https://www.instagram.com/tszhong0411/) - info@honghong.me
 
-項目連結: [https://github.com/tszhong0411/friend-quiz](https://github.com/tszhong0411/friend-quiz)
+Project Link: [https://github.com/tszhong0411/friend-quiz](https://github.com/tszhong0411/friend-quiz)
