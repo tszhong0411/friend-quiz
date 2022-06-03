@@ -129,16 +129,14 @@ export default function Home() {
     <Container>
       <div>
         <h1 className="text-3xl font-bold text-center">好友問卷作弊器</h1>
-        <p className="my-6 text-lg font-medium text-center">
-          使用我們的好友問卷作弊器可以輕鬆知道好友問卷上的答案
-        </p>
+        <p className="my-6 text-lg font-medium text-center">在好友問卷上取得滿分</p>
         <form onSubmit={(e) => submitHandler(e)}>
           {' '}
           <div className="my-10 gap-x-4 sm:flex">
             <input
               type="url"
               required
-              placeholder="網址: https://example.com"
+              placeholder="貼上你的網址 ..."
               ref={urlRef}
               className="solid border-[rgb(108, 119, 147)] focus:border-brand w-full rounded-md border-2 shadow-md outline-none duration-300 text-typeface-primary dark:text-typeface-primary-dark bg-body-secondary dark:bg-body-secondary-dark"
             />
