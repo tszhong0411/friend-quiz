@@ -31,8 +31,8 @@ class MyDocument extends Document {
           />
           <link rel="mask-icon" href="/static/favicons/safari-pinned-tab.svg" color="#373737" />
           <link rel="shortcut icon" href="/static/favicons/favicon.ico" />
-          <meta name="apple-mobile-web-app-title" content="好友問卷作弊器" />
-          <meta name="application-name" content="好友問卷作弊器" />
+          <meta name="apple-mobile-web-app-title" content="好友測驗作弊器" />
+          <meta name="application-name" content="好友測驗作弊器" />
           <meta name="msapplication-TileColor" content="#ffffff" />
           <meta name="msapplication-config" content="/static/favicons/browserconfig.xml" />
           <meta name="theme-color" content="#ffffff" />

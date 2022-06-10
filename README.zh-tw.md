@@ -1,8 +1,8 @@
 <p align="right">Lanuage: 中文  | <a href="./README.md">English</a></p>
 <div align="center">
-  <h3 align="center">好友問卷作弊器</h3>
+  <h3 align="center">好友測驗作弊器</h3>
   <p align="center">
-    使用我們的好友問卷作弊器可以輕鬆知道好友問卷上的答案
+    在好友問卷上取得滿分
   </p>
   <hr />
   <p align="center">
@@ -39,7 +39,7 @@
   <img src="./public/static/images/screenshot/2022-03-08_03-26-38.png">
 </p>
 
-我在 Instagram 上經常看見朋友發的好友問卷連結，我就想我能不能破解它，當我按下 <kbd>F12</kbd> 後有趣的事情發生了。
+我在 Instagram 上經常看見朋友發的好友測驗連結，我就想我能不能破解它，當我按下 <kbd>F12</kbd> 後有趣的事情發生了。
 
 原因:
 

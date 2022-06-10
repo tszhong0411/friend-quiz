@@ -128,8 +128,8 @@ export default function Home() {
   return (
     <Container>
       <div>
-        <h1 className="text-3xl font-bold text-center">好友問卷作弊器</h1>
-        <p className="my-6 text-lg font-medium text-center">在好友問卷上取得滿分</p>
+        <h1 className="text-3xl font-bold text-center">好友測驗作弊器</h1>
+        <p className="my-6 text-lg font-medium text-center">在好友測驗上取得滿分</p>
         <form onSubmit={(e) => submitHandler(e)}>
           {' '}
           <div className="my-10 gap-x-4 sm:flex">

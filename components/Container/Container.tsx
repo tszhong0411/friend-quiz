@@ -9,8 +9,8 @@ export default function Container(props) {
   const { children, ...customMeta } = props
   const router = useRouter()
   const meta = {
-    title: '好友問卷作弊器 – 小康',
-    description: '使用我們的好友問卷作弊器可以輕鬆知道好友問卷上的答案',
+    title: '好友測驗作弊器 – 小康',
+    description: '在好友問卷上取得滿分',
     image: 'https://friendquiz.honghong.me/static/images/banner.png',
     type: 'website',
     ...customMeta,
@@ -26,7 +26,7 @@ export default function Container(props) {
         <meta property="og:url" content={`https://friendquiz.honghong.me${router.asPath}`} />
         <link rel="canonical" href={`https://friendquiz.honghong.me${router.asPath}`} />
         <meta property="og:type" content={meta.type} />
-        <meta property="og:site_name" content="好友問卷作弊器" />
+        <meta property="og:site_name" content="好友測驗作弊器" />
         <meta property="og:description" content={meta.description} />
         <meta property="og:title" content={meta.title} />
         <meta property="og:image" content={meta.image} />

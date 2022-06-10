@@ -10,7 +10,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (formattedURL.includes('buddymojo.com')) {
     // * 取得 buddymojo api 代號
     const apiID = buddymojoAPI(formattedURL.split('.')[0])
-    // * 取得 問卷 id
+    // * 取得 測驗 id
     fetch(url.toString())
       .then((response) => response.text())
       .then((result) => {
@@ -42,7 +42,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     formattedURL.includes('bakequiz.com') ||
     formattedURL.includes('hellomate.me')
   ) {
-    // * 取得 問卷 答案
+    // * 取得 測驗 答案
     fetch(url.toString(), {
       method: 'POST',
       body: 'userFullName=user&sync_quiz=%E9%96%8B%E5%A7%8B',
