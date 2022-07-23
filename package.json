@@ -2,54 +2,47 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "next start",
     "dev": "next dev",
     "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "lint:fix": "eslint src --fix && yarn format",
+    "lint:strict": "eslint --max-warnings=0 src",
+    "commit": "gitmoji -c",
+    "format": "prettier -w .",
+    "format:check": "prettier -c .",
     "type-check": "tsc",
-    "lint": "next lint --fix --dir pages --dir components --dir lib",
-    "format": "prettier --write \"./**/*.{js,jsx,ts,tsx}\"",
-    "postinstall": "husky install",
-    "commit": "cz"
+    "prepare": "husky install"
   },
   "dependencies": {
-    "@tailwindcss/aspect-ratio": "0.4.0",
-    "@tailwindcss/forms": "0.5.2",
-    "@tailwindcss/typography": "0.5.2",
-    "@types/tailwindcss": "3.0.10",
-    "autoprefixer": "10.4.7",
-    "eslint-plugin-simple-import-sort": "7.0.0",
-    "eslint-plugin-unused-imports": "2.0.0",
-    "framer-motion": "6.3.16",
-    "next": "12.1.6",
-    "next-themes": "0.2.0",
-    "postcss": "8.4.14",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-icons": "4.4.0",
-    "react-loader-spinner": "6.0.0-0",
-    "react-toastify": "9.0.5",
-    "tailwindcss": "3.1.4"
+    "@mantine/core": "^4.2.12",
+    "@mantine/form": "^4.2.12",
+    "@mantine/hooks": "^4.2.12",
+    "@mantine/next": "^4.2.12",
+    "@mantine/notifications": "^4.2.12",
+    "accept-language": "^3.0.18",
+    "axios": "^0.27.2",
+    "cookies-next": "^2.1.1",
+    "next": "12.2.3",
+    "next-translate": "^1.5.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "tabler-icons-react": "^1.53.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "17.0.2",
-    "@commitlint/config-conventional": "17.0.0",
-    "@types/node": "18.0.0",
-    "@types/react": "17.0.40",
-    "@types/react-dom": "18.0.3",
-    "@typescript-eslint/eslint-plugin": "5.29.0",
-    "@typescript-eslint/parser": "5.28.0",
-    "commitizen": "4.2.4",
-    "cz-conventional-changelog": "3.3.0",
-    "eslint": "8.18.0",
-    "eslint-config-next": "12.1.6",
+    "@types/react": "18.0.15",
+    "@types/react-dom": "18.0.6",
+    "@typescript-eslint/eslint-plugin": "5.30.7",
+    "@typescript-eslint/parser": "5.30.7",
+    "eslint": "8.20.0",
+    "eslint-config-next": "12.2.3",
     "eslint-config-prettier": "8.5.0",
-    "eslint-import-resolver-typescript": "2.7.1",
-    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-prettier": "4.2.1",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
     "husky": "8.0.1",
-    "lint-staged": "13.0.2",
+    "lint-staged": "13.0.3",
     "prettier": "2.7.1",
-    "lint-staged": "13.0.2",
-    "prettier": "2.6.2",
     "typescript": "4.7.4"
   },
   "lint-staged": {
@@ -60,9 +53,103 @@
       "prettier --write"
     ]
   },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+  "prettier": {
+    "arrowParens": "always",
+    "singleQuote": true,
+    "jsxSingleQuote": true,
+    "tabWidth": 2,
+    "semi": false
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es2021": true,
+      "node": true
+    },
+    "plugins": [
+      "@typescript-eslint",
+      "simple-import-sort",
+      "unused-imports"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "next",
+      "next/core-web-vitals",
+      "plugin:@typescript-eslint/recommended",
+      "prettier"
+    ],
+    "rules": {
+      "no-unused-vars": "off",
+      "no-console": "warn",
+      "@typescript-eslint/explicit-module-boundary-types": "off",
+      "react/display-name": "off",
+      "react/jsx-curly-brace-presence": [
+        "warn",
+        {
+          "props": "never",
+          "children": "never"
+        }
+      ],
+      "@typescript-eslint/no-unused-vars": "off",
+      "unused-imports/no-unused-imports": "warn",
+      "unused-imports/no-unused-vars": [
+        "warn",
+        {
+          "vars": "all",
+          "varsIgnorePattern": "^_",
+          "args": "after-used",
+          "argsIgnorePattern": "^_"
+        }
+      ],
+      "simple-import-sort/exports": "warn",
+      "simple-import-sort/imports": [
+        "warn",
+        {
+          "groups": [
+            [
+              "^@?\\w",
+              "^\\u0000"
+            ],
+            [
+              "^.+\\.s?css$"
+            ],
+            [
+              "^@/lib",
+              "^@/hooks"
+            ],
+            [
+              "^@/data"
+            ],
+            [
+              "^@/components",
+              "^@/container"
+            ],
+            [
+              "^@/"
+            ],
+            [
+              "^\\./?$",
+              "^\\.(?!/?$)",
+              "^\\.\\./?$",
+              "^\\.\\.(?!/?$)",
+              "^\\.\\./\\.\\./?$",
+              "^\\.\\./\\.\\.(?!/?$)",
+              "^\\.\\./\\.\\./\\.\\./?$",
+              "^\\.\\./\\.\\./\\.\\.(?!/?$)"
+            ],
+            [
+              "^@/types"
+            ],
+            [
+              "^"
+            ]
+          ]
+        }
+      ]
+    },
+    "globals": {
+      "React": true,
+      "JSX": true
     }
   }
 }
