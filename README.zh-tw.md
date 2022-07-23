@@ -36,7 +36,7 @@
 ## 關於這個項目
 
 <p align="center">
-  <img src="./public/static/images/screenshot/2022-03-08_03-26-38.png">
+  <img src="./public/static/images/screenshot/screenshot.png">
 </p>
 
 我在 Instagram 上經常看見朋友發的好友測驗連結，我就想我能不能破解它，當我按下 <kbd>F12</kbd> 後有趣的事情發生了。
@@ -52,8 +52,6 @@
 這部分展示了我在項目中用到的技術
 
 - [Next.js](https://nextjs.org/)
-- [Tailwindcss](https://tailwindcss.com/)
-- [React-toastify](https://github.com/fkhadra/react-toastify)
 - [Husky](https://github.com/typicode/husky)
 
 <!-- GETTING STARTED -->
@@ -84,9 +82,9 @@
 - [x] Support hellomate
 - [x] Support buddymojo
 - [x] Support bakequiz
-- [ ] Multi-language Support
-  - [ ] Chinese
-  - [ ] English
+- [x] Multi-language Support
+  - [x] Chinese
+  - [x] English
 
 請參閱 [open issues](https://github.com/tszhong0411/friend-quiz/issues) 以獲取建議功能（和已知問題）的完整列表。
 

@@ -36,7 +36,7 @@
 ## About the project
 
 <p align="center">
-  <img src="./public/static/images/screenshot/2022-03-08_03-26-38.png">
+  <img src="./public/static/images/screenshot/screenshot.png">
 </p>
 
 I often see a link to a friend quiz from a friend on Instagram, and I wonder if I can hack it, and something interesting happens when I press <kbd>F12</kbd>.
@@ -52,8 +52,6 @@ Reasons:
 This part shows the techniques I used in the project
 
 - [Next.js](https://nextjs.org/)
-- [Tailwindcss](https://tailwindcss.com/)
-- [React-toastify](https://github.com/fkhadra/react-toastify)
 - [Husky](https://github.com/typicode/husky)
 
 <!-- GETTING STARTED -->
@@ -83,9 +81,9 @@ This is an example of how you may give instructions on setting up your project l
 - [x] Support hellomate
 - [x] Support buddymojo
 - [x] Support bakequiz
-- [ ] Multi-language Support
-  - [ ] Chinese
-  - [ ] English
+- [x] Multi-language Support
+  - [x] Chinese
+  - [x] English
 
 See the [open issues](https://github.com/tszhong0411/friend-quiz/issues) for a full list of proposed features (and known issues).
 
