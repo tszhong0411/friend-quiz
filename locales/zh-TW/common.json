@@ -19,7 +19,7 @@
   "supportSite": "支援網址",
   "author": "作者",
   "contribution": "貢獻",
-  "contributionContent": "<p>貢獻使開源社區成為學習、啟發和創造的絕佳場所。您所做的任何貢獻都非常感謝。</p><p>如果你有一個可以讓這變得更好的建議，請 fork 和 Pull request 創建一個拉取請求。您也可以簡單地打開帶有 <strong>enhancement</strong> 標籤的問題。別忘了給項目 Star！再次感謝！</p><ol><li>Fork the Project</li><li>Commit your Changes (<code>git commit -m \"Add some features\"</code>)</li><li>Push to the Branch (<code>git push origin main</code>)</li><li>Open a Pull Request</li></ol>",
+  "contributionContent": "<p>貢獻使開源社區成為學習、啟發和創造的絕佳場所。您所做的任何貢獻都非常感謝。</p><p>如果你有一個可以讓這變得更好的建議，請 fork 和 Pull request 創建一個拉取請求。您也可以簡單地打開帶有 <strong>enhancement</strong> 標籤的問題。別忘了給項目 Star！再次感謝！</p><ol><li>Fork the Project</li><li>Commit your Changes (<code>git commit -m \"Add some features\"</code>)</li><li>Push to the Branch (<code>git push</code>)</li><li>Open a Pull Request</li></ol>",
   "license": "許可",
   "licenseContent": "<p>根據 MIT 許可證分發。有關更多信息，請參閱 <link>LICENSE</link></p>",
   "contact": "聯絡",
