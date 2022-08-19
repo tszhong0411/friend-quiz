@@ -7,10 +7,10 @@ import {
   TypographyStylesProvider,
   useMantineColorScheme,
 } from '@mantine/core'
-import Image from 'next/image'
-import { useRouter } from 'next/router'
 import Trans from 'next-translate/Trans'
 import useTranslation from 'next-translate/useTranslation'
+import Image from 'next/image'
+import { useRouter } from 'next/router'
 import React from 'react'
 
 import { config } from '@/data/config'
@@ -25,7 +25,7 @@ export const Content = () => {
   const prevStep = () =>
     setActive((current) => (current > 0 ? current - 1 : current))
   const router = useRouter()
-  const { t } = useTranslation()
+  const { t } = useTranslation('common')
   const { colorScheme } = useMantineColorScheme()
   const dark = colorScheme === 'dark'
   const { classes } = useStyles()
@@ -33,9 +33,8 @@ export const Content = () => {
   return (
     <TypographyStylesProvider>
       <Title order={2} mb={24}>
-        {t('common:tutorial')}
+        {t('tutorial')}
       </Title>
-
       <Stepper
         active={active}
         onStepClick={setActive}
@@ -45,10 +44,7 @@ export const Content = () => {
           content: classes.step,
         }}
       >
-        <Stepper.Step
-          label={t('common:step', { step: 1 })}
-          description={t('common:step1')}
-        >
+        <Stepper.Step label={t('step', { step: 1 })} description={t('step1')}>
           <Image
             src={`/static/images/tutorial/step-1${
               router.locale === 'en' ? '-en' : ''
@@ -59,10 +55,7 @@ export const Content = () => {
             quality={100}
           />
         </Stepper.Step>
-        <Stepper.Step
-          label={t('common:step', { step: 2 })}
-          description={t('common:step2')}
-        >
+        <Stepper.Step label={t('step', { step: 2 })} description={t('step2')}>
           <Image
             src={`/static/images/tutorial/step-2${
               router.locale === 'en' ? '-en' : ''
@@ -73,10 +66,7 @@ export const Content = () => {
             quality={100}
           />
         </Stepper.Step>
-        <Stepper.Step
-          label={t('common:step', { step: 3 })}
-          description={t('common:step3')}
-        >
+        <Stepper.Step label={t('step', { step: 3 })} description={t('step3')}>
           <Image
             src={`/static/images/tutorial/step-3${
               router.locale === 'en' ? '-en' : ''
@@ -89,21 +79,20 @@ export const Content = () => {
         </Stepper.Step>
         <Stepper.Completed>
           <Text align='center' my={24}>
-            {t('common:finishTutorial')}
+            {t('finishTutorial')}
           </Text>
         </Stepper.Completed>
       </Stepper>
-
       <Group position='center' mt='xl'>
         <Button variant='default' onClick={prevStep}>
-          {t('common:prevStep')}
+          {t('prevStep')}
         </Button>
         <Button onClick={nextStep}>
-          {active === 2 ? t('common:finish') : t('common:nextStep')}
+          {active === 2 ? t('finish') : t('nextStep')}
         </Button>
       </Group>
       <div>
-        <h2>{t('common:supportSite')}</h2>
+        <h2>{t('supportSite')}</h2>
         <div>
           <ul>
             {config.support_site.map((item) => (
@@ -115,7 +104,7 @@ export const Content = () => {
         </div>
       </div>
       <div>
-        <h2>{t('common:author')}</h2>
+        <h2>{t('author')}</h2>
         <div>
           <p>
             <Link href='https://honghong.me'>小康</Link>
@@ -123,7 +112,7 @@ export const Content = () => {
         </div>
       </div>
       <div>
-        <h2>{t('common:contribution')}</h2>
+        <h2>{t('contribution')}</h2>
         <div>
           <Trans
             i18nKey='common:contributionContent'
@@ -138,7 +127,7 @@ export const Content = () => {
         </div>
       </div>
       <div>
-        <h2>{t('common:license')}</h2>
+        <h2>{t('license')}</h2>
         <div>
           <Trans
             i18nKey='common:licenseContent'
@@ -152,7 +141,7 @@ export const Content = () => {
         </div>
       </div>
       <div>
-        <h2>{t('common:contact')}</h2>
+        <h2>{t('contact')}</h2>
         <div>
           <Trans
             i18nKey='common:contactContent'

@@ -9,13 +9,10 @@ const ThemeSwitch = () => {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme()
   const dark = colorScheme === 'dark'
   const { classes } = useStyles()
-  const { t } = useTranslation()
+  const { t } = useTranslation('common')
 
   return (
-    <Tooltip
-      label={dark ? t('common:lightmode') : t('common:darkmode')}
-      openDelay={500}
-    >
+    <Tooltip label={dark ? t('lightmode') : t('darkmode')} openDelay={500}>
       <Button
         variant='filled'
         color='gray'

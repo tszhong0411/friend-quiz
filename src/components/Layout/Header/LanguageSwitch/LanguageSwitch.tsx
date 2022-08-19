@@ -1,8 +1,8 @@
 import { Menu, Tooltip, UnstyledButton } from '@mantine/core'
 import { useLocalStorage } from '@mantine/hooks'
+import useTranslation from 'next-translate/useTranslation'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import useTranslation from 'next-translate/useTranslation'
 import React from 'react'
 import { ChevronDown, Language } from 'tabler-icons-react'
 
@@ -17,7 +17,7 @@ export default function LanguageSwitch() {
   const router = useRouter()
   const [locale, setLocale] = useLocalStorage({ key: 'locale' })
   const { locales, defaultLocale } = i18nConfig
-  const { t } = useTranslation()
+  const { t } = useTranslation('common')
 
   // * Redirect when current language not same with language in localstorage
   React.useEffect(() => {
@@ -49,7 +49,7 @@ export default function LanguageSwitch() {
       onClose={() => setOpened(false)}
       radius='md'
       control={
-        <Tooltip label={t('common:languageSwitch')} openDelay={500}>
+        <Tooltip label={t('languageSwitch')} openDelay={500}>
           <UnstyledButton className={classes.control}>
             <Language size={18} />
             <ChevronDown size={16} className={classes.icon} />
