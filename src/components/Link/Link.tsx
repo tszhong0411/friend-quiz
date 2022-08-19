@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
+import { useStyles } from './Link.styles'
+
 import { Anchor, AnchorProps } from '@mantine/core'
 import Link from 'next/link'
 import React from 'react'
 import { ExternalLink } from 'tabler-icons-react'
-
-import { useStyles } from './Link.styles'
 
 const CustomLink = ({
   href,
