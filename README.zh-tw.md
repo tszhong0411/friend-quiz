@@ -99,7 +99,7 @@
 
 1. Fork the Project
 2. Commit your Changes (`git commit -m 'Add some features'`)
-3. Push to the Branch (`git push origin main`)
+3. Push to the Branch (`git push`)
 4. Open a Pull Request
 
 <!-- LICENSE -->
