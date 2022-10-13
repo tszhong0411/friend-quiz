@@ -12,13 +12,13 @@ import {
 } from '@mantine/core'
 import { useForm } from '@mantine/form'
 import { showNotification } from '@mantine/notifications'
+import { IconCircleX } from '@tabler/icons'
 import axios from 'axios'
-import { NextSeo } from 'next-seo'
-import useTranslation from 'next-translate/useTranslation'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
+import { NextSeo } from 'next-seo'
+import useTranslation from 'next-translate/useTranslation'
 import React from 'react'
-import { CircleX } from 'tabler-icons-react'
 
 import { quizType } from '@/lib/quizType'
 import { BuddymojoType, OtherQuizType } from '@/lib/types'
@@ -67,7 +67,7 @@ export default function Home() {
       showNotification({
         title: t('err'),
         message: res.error === 404 && t('urlErr'),
-        icon: <CircleX />,
+        icon: <IconCircleX />,
       })
     } else {
       ;/buddymojo/i.test(type) && setAnswer(res.data.questions)
@@ -81,8 +81,8 @@ export default function Home() {
   return (
     <>
       <NextSeo
-        titleTemplate='%s | 小康'
-        defaultTitle='小康'
+        titleTemplate='%s | 小康 Friend quiz cheat tool'
+        defaultTitle='小康 Friend quiz cheat tool'
         description='Friend quiz cheat tool'
         canonical={`https://friendquiz.honghong.me${router.asPath}`}
         twitter={{
