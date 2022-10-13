@@ -1,20 +1,13 @@
-import { defaultMeta } from '@/components/Layout/SEO/SEO'
-
 export type ConfigType = {
-  support_site: {
+  support_site: Array<{
     name: string
     href: string
-  }[]
+  }>
 }
 
 export type ChildrenType = {
   children: React.ReactNode
 }
-
-export type SeoProps = {
-  description?: string
-  templateTitle?: string
-} & Partial<typeof defaultMeta>
 
 export type NavLinkType = {
   link: string
@@ -31,7 +24,7 @@ export type FaviconType = {
 // * buddymojo
 export type BuddymojoType = {
   choosenOption: string
-  options: BuddymojoOption[]
+  options: Array<BuddymojoOption>
   question: string
   questionId: string
   themeId: string
@@ -47,7 +40,7 @@ export type OtherQuizType = {
   chQuestionOptionId: string
   correctOptionId: string
   optionType: number
-  options: OtherQuizOption[]
+  options: Array<OtherQuizOption>
   question: string
   questionId: string
   questionType: number
@@ -57,9 +50,4 @@ export type OtherQuizOption = {
   content: string
   questionOptionId: string
   type: string
-}
-
-export type I18nConfigType = {
-  locales: string[]
-  defaultLocale: string
 }
