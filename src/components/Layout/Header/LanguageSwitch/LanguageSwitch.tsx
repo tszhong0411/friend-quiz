@@ -1,63 +1,70 @@
 import { Menu, Tooltip, UnstyledButton } from '@mantine/core'
 import { useLocalStorage } from '@mantine/hooks'
-import useTranslation from 'next-translate/useTranslation'
-import Image from 'next/image'
+import { IconChevronDown, IconLanguage } from '@tabler/icons'
 import { useRouter } from 'next/router'
+import setLanguage from 'next-translate/setLanguage'
+import useTranslation from 'next-translate/useTranslation'
 import React from 'react'
-import { ChevronDown, Language } from 'tabler-icons-react'
-
-import i18nConfig from '@/lib/i18n'
 
 import { useStyles } from '@/components/Layout/Header/LanguageSwitch/LanguageSwitch.styles'
-import { list } from '@/components/Layout/Header/LanguageSwitch/list'
 
 export default function LanguageSwitch() {
-  const [opened, setOpened] = React.useState(false)
-  const { classes } = useStyles({ opened })
+  const { classes } = useStyles()
   const router = useRouter()
   const [locale, setLocale] = useLocalStorage({ key: 'locale' })
-  const { locales, defaultLocale } = i18nConfig
   const { t } = useTranslation('common')
 
-  // * Redirect when current language not same with language in localstorage
   React.useEffect(() => {
-    if (typeof locale === 'string' && locale !== router.locale) {
-      router.push(router.asPath, router.asPath, { locale })
+    const redirect = async () => {
+      await setLanguage(locale)
     }
-  }, [defaultLocale, locale, locales, router])
 
-  const changeLanguage = (locale: string) => {
+    if (locale) {
+      if (locale !== router.locale) {
+        redirect()
+      }
+    }
+  }, [locale, router])
+
+  const changeLanguage = async (locale: string) => {
     setLocale(locale)
-    router.push(router.asPath, router.asPath, { locale })
+    await setLanguage(locale)
   }
 
-  const items = list.map((item) => (
-    <Menu.Item
-      icon={<Image src={item.image} width={22} height={22} alt='Flags' />}
-      onClick={() => changeLanguage(item.locale)}
-      key={item.label}
-    >
-      {item.label}
-    </Menu.Item>
-  ))
+  const languages = {
+    'zh-TW': {
+      name: '繁體中文',
+    },
+    en: {
+      name: 'English',
+    },
+  }
 
   return (
-    <Menu
-      transition='pop'
-      transitionDuration={150}
-      onOpen={() => setOpened(true)}
-      onClose={() => setOpened(false)}
-      radius='md'
-      control={
-        <Tooltip label={t('languageSwitch')} openDelay={500}>
-          <UnstyledButton className={classes.control}>
-            <Language size={18} />
-            <ChevronDown size={16} className={classes.icon} />
-          </UnstyledButton>
-        </Tooltip>
-      }
-    >
-      {items}
+    <Menu width={200} position='bottom-end'>
+      <Tooltip label={t('switchLanguage')} openDelay={500}>
+        <span>
+          <Menu.Target>
+            <UnstyledButton className={classes.control}>
+              <IconLanguage size={18} />
+              <IconChevronDown size={16} />
+            </UnstyledButton>
+          </Menu.Target>
+        </span>
+      </Tooltip>
+
+      <Menu.Dropdown>
+        <Menu.Label>{t('language')}</Menu.Label>
+        {router.locales.map((item: string, index: number) => {
+          const name = languages[item].name
+
+          return (
+            <Menu.Item key={index} onClick={() => changeLanguage(item)}>
+              {name}
+            </Menu.Item>
+          )
+        })}
+      </Menu.Dropdown>
     </Menu>
   )
 }

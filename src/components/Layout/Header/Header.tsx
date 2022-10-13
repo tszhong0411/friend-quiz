@@ -6,7 +6,7 @@ import {
   Paper,
   Transition,
 } from '@mantine/core'
-import { useBooleanToggle, useScrollLock } from '@mantine/hooks'
+import { useDisclosure, useScrollLock } from '@mantine/hooks'
 import { useRouter } from 'next/router'
 import React from 'react'
 
@@ -15,25 +15,28 @@ import HeaderLogo from '@/components/Layout/Header/HeaderLogo'
 import LanguageSwitch from '@/components/Layout/Header/LanguageSwitch'
 import { links } from '@/components/Layout/Header/links'
 import ThemeSwitch from '@/components/Layout/Header/ThemeSwitch'
+import Link from '@/components/Link'
 
 export const HEADER_HEIGHT = 56
 
 export default function Header() {
-  const [opened, toggleOpened] = useBooleanToggle(false)
+  const [opened, handlers] = useDisclosure(false)
   const [scrollLocked, setScrollLocked] = useScrollLock()
   const { classes, cx } = useStyles()
   const router = useRouter()
 
   const items = links.map((link) => (
-    <a
+    <Link
       key={link.label}
       href={link.link}
       className={cx(classes.link, {
         [classes.linkActive]: router.asPath === link.link,
       })}
+      underline={false}
+      onClick={() => opened && handlers.close()}
     >
       {link.label}
-    </a>
+    </Link>
   ))
 
   return (
@@ -43,7 +46,7 @@ export default function Header() {
           <Burger
             opened={opened}
             onClick={() => {
-              toggleOpened()
+              handlers.toggle()
               setScrollLocked(!scrollLocked)
             }}
             size='sm'

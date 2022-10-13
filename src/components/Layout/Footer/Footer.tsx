@@ -1,6 +1,10 @@
 import { ActionIcon, Container, Group, Text } from '@mantine/core'
+import {
+  IconBrandGithub,
+  IconBrandInstagram,
+  IconBrandYoutube,
+} from '@tabler/icons'
 import React from 'react'
-import { BrandGithub, BrandInstagram, BrandYoutube } from 'tabler-icons-react'
 
 import { useStyles } from '@/components/Layout/Footer/Footer.styles'
 import Link from '@/components/Link'
@@ -19,7 +23,7 @@ export default function Footer() {
             noIcon
             href='https://github.com/tszhong0411'
           >
-            <BrandGithub size={18} />
+            <IconBrandGithub size={18} />
           </ActionIcon>
           <ActionIcon
             size='lg'
@@ -27,7 +31,7 @@ export default function Footer() {
             noIcon
             href='https://www.youtube.com/channel/UC2hMWOaOlk9vrkvFVaGmn0Q'
           >
-            <BrandYoutube size={18} />
+            <IconBrandYoutube size={18} />
           </ActionIcon>
           <ActionIcon
             size='lg'
@@ -35,7 +39,7 @@ export default function Footer() {
             noIcon
             href='https://www.instagram.com/tszhong0411/'
           >
-            <BrandInstagram size={18} />
+            <IconBrandInstagram size={18} />
           </ActionIcon>
         </Group>
       </Container>

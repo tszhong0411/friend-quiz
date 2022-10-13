@@ -7,10 +7,10 @@ import {
   TypographyStylesProvider,
   useMantineColorScheme,
 } from '@mantine/core'
-import Trans from 'next-translate/Trans'
-import useTranslation from 'next-translate/useTranslation'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
+import Trans from 'next-translate/Trans'
+import useTranslation from 'next-translate/useTranslation'
 import React from 'react'
 
 import { config } from '@/data/config'

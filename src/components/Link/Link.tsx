@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
-import { useStyles } from './Link.styles'
-
 import { Anchor, AnchorProps } from '@mantine/core'
+import { IconExternalLink } from '@tabler/icons'
 import Link from 'next/link'
 import React from 'react'
-import { ExternalLink } from 'tabler-icons-react'
+
+import { useStyles } from './Link.styles'
 
 const CustomLink = ({
   href,
@@ -13,7 +13,7 @@ const CustomLink = ({
   ...rest
 }: React.ComponentPropsWithRef<'a'> & {
   noIcon?: boolean
-} & AnchorProps<'a'>) => {
+} & AnchorProps) => {
   const isInternalLink = href && href.startsWith('/')
   const isAnchorLink = href && href.startsWith('#')
   const { classes } = useStyles()
@@ -33,12 +33,13 @@ const CustomLink = ({
       </Anchor>
     )
   }
+
   return (
     <Anchor target='_blank' rel='noopener noreferrer' href={href} {...rest}>
       {children}
       {!noIcon && (
         <span>
-          <ExternalLink size={18} className={classes.externalLink} />
+          <IconExternalLink size={18} className={classes.externalLink} />
         </span>
       )}
     </Anchor>
