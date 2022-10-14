@@ -1,6 +1,11 @@
-import { ConfigType } from 'src/lib/types'
+type Config = {
+  support_site: Array<{
+    name: string
+    href: string
+  }>
+}
 
-export const config: ConfigType = {
+export const config: Config = {
   support_site: [
     {
       name: 'Holaquiz',
@@ -17,6 +22,10 @@ export const config: ConfigType = {
     {
       name: 'Hellomate',
       href: 'https://cn.hellomate.me/',
+    },
+    {
+      name: 'Friend2021',
+      href: 'https://friend2021.com/',
     },
   ],
 }

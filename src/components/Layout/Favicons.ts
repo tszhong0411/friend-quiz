@@ -1,6 +1,11 @@
-import { FaviconType } from '@/lib/types'
+type Favicon = {
+  rel: string
+  href: string
+  sizes?: string
+  type?: string
+}
 
-export const Favicons: Array<FaviconType> = [
+export const Favicons: Array<Favicon> = [
   {
     rel: 'apple-touch-icon',
     sizes: '57x57',
