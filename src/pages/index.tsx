@@ -14,21 +14,20 @@ import { useForm } from '@mantine/form'
 import { showNotification } from '@mantine/notifications'
 import { IconCircleX } from '@tabler/icons'
 import axios from 'axios'
-import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { NextSeo } from 'next-seo'
 import useTranslation from 'next-translate/useTranslation'
 import React from 'react'
 
-import { quizType } from '@/lib/quizType'
-import { BuddymojoType, OtherQuizType } from '@/lib/types'
+import { Answer } from '@/lib/types'
+
+import { config } from '@/data/config'
 
 import { Content } from '@/components/Intro'
 import { Favicons } from '@/components/Layout/Favicons'
 
 export default function Home() {
-  const [answer, setAnswer] = React.useState<any>()
-  const [type, setType] = React.useState('')
+  const [answers, setAnswers] = React.useState<any>(null)
   const [loading, setLoading] = React.useState(false)
   const { classes } = useStyles()
   const { t } = useTranslation('common')
@@ -40,23 +39,32 @@ export default function Home() {
     },
 
     validate: {
-      url: (value) =>
-        /(https|http):\/\/([a-zA-Z]+\.|)(buddymojo|holaquiz|bakequiz|hellomate).(me|com)\/(sync-quiz|match|b)\/[0-9a-zA-Z]+/.test(
-          value
-        )
-          ? null
-          : t('urlErr'),
+      url: (value) => (/^(https):\/\/[^ "]+$/.test(value) ? null : t('urlErr')),
     },
   })
 
+  const getQuizType = (url: string) => {
+    let type: string
+
+    config.support_site.forEach((item) => {
+      const { name } = item
+
+      const re = new RegExp(name.toLowerCase(), 'i')
+      if (re.test(url)) {
+        type = name.toLowerCase()
+      }
+    })
+
+    return type
+  }
+
   const submitHandler = async (url: string) => {
     setLoading(true)
-    setAnswer(null)
-    setType(null)
+    setAnswers(null)
 
-    const type = quizType(url)
+    const type = getQuizType(url)
 
-    const { data: res } = await axios.post('/api/answer', null, {
+    const { data: res } = await axios.post('/api/getAnswer', null, {
       params: {
         url,
         type,
@@ -70,9 +78,7 @@ export default function Home() {
         icon: <IconCircleX />,
       })
     } else {
-      ;/buddymojo/i.test(type) && setAnswer(res.data.questions)
-      ;/holaquiz|bakequiz|hellomate/i.test(type) && setAnswer(res.questions)
-      setType(type)
+      setAnswers(res)
     }
 
     setLoading(false)
@@ -141,55 +147,13 @@ export default function Home() {
           </form>
         </div>
         <Box my={48}>
-          {type === 'buddymojo' &&
-            answer &&
-            answer.map((q: BuddymojoType, i: number) => (
+          {answers !== null &&
+            answers.map((answer: Answer, i: number) => (
               <Box my={16} key={i}>
-                <Text>{`${i + 1}. ${q.question}`}</Text>
-                <div>
-                  <Text>{q.options[Number(q.choosenOption) - 1].content}</Text>
-                </div>
+                <Text>{`${i + 1}. ${answer.title}`}</Text>
+                <Text weight={600}>{answer.content}</Text>
               </Box>
             ))}
-          {/holaquiz|bakequiz|hellomate/.test(type) &&
-            answer &&
-            answer.map((q: OtherQuizType, i: number) => {
-              const parser = new DOMParser()
-              const answer = q.options.find(
-                (e) => e.questionOptionId === q.chQuestionOptionId
-              ).content
-
-              return (
-                <div key={i}>
-                  <p>
-                    {`${i + 1}. ${
-                      q.question.includes('<html>')
-                        ? parser
-                            .parseFromString(q.question, 'text/html')
-                            .querySelector('h2').innerText
-                        : q.question
-                    }`}
-                  </p>
-                  <div>
-                    <p>
-                      {answer.includes('<html>') ? (
-                        <Image
-                          width={175}
-                          height={175}
-                          src={parser
-                            .parseFromString(answer, 'text/html')
-                            .querySelector('img')
-                            .getAttribute('src')}
-                          alt='answer cover'
-                        />
-                      ) : (
-                        answer
-                      )}
-                    </p>
-                  </div>
-                </div>
-              )
-            })}
         </Box>
         <Content />
       </Container>
