@@ -4,7 +4,7 @@ import { JSDOM } from 'jsdom'
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { buddymojoAPI } from 'src/lib/buddymojoAPI'
 
-type Answer = {
+export type Answer = {
   title: string
   content: string
 }

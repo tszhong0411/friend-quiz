@@ -6,7 +6,7 @@ import setLanguage from 'next-translate/setLanguage'
 import useTranslation from 'next-translate/useTranslation'
 import React from 'react'
 
-import { useStyles } from '@/components/Layout/Header/LanguageSwitch/LanguageSwitch.styles'
+import { useStyles } from './LanguageSwitch.styles'
 
 export default function LanguageSwitch() {
   const { classes } = useStyles()

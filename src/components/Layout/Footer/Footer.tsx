@@ -6,8 +6,9 @@ import {
 } from '@tabler/icons'
 import React from 'react'
 
-import { useStyles } from '@/components/Layout/Footer/Footer.styles'
 import Link from '@/components/Link'
+
+import { useStyles } from './Footer.styles'
 
 export default function Footer() {
   const { classes } = useStyles()

@@ -15,8 +15,9 @@ import React from 'react'
 
 import { config } from '@/data/config'
 
-import { useStyles } from '@/components/Intro/Content/Content.styles'
 import Link from '@/components/Link'
+
+import { useStyles } from './Content.styles'
 
 export const Content = () => {
   const [active, setActive] = React.useState(0)

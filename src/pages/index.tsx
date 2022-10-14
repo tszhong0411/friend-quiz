@@ -19,12 +19,12 @@ import { NextSeo } from 'next-seo'
 import useTranslation from 'next-translate/useTranslation'
 import React from 'react'
 
-import { Answer } from '@/lib/types'
-
 import { config } from '@/data/config'
 
 import { Content } from '@/components/Intro'
 import { Favicons } from '@/components/Layout/Favicons'
+
+import { Answer } from './api/getAnswer'
 
 export default function Home() {
   const [answers, setAnswers] = React.useState<any>(null)
