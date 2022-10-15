@@ -19,8 +19,6 @@ import { NextSeo } from 'next-seo'
 import useTranslation from 'next-translate/useTranslation'
 import React from 'react'
 
-import { config } from '@/data/config'
-
 import { Content } from '@/components/Intro'
 import { Favicons } from '@/components/Layout/Favicons'
 
@@ -43,42 +41,24 @@ export default function Home() {
     },
   })
 
-  const getQuizType = (url: string) => {
-    let type: string
-
-    config.support_site.forEach((item) => {
-      const { name } = item
-
-      const re = new RegExp(name.toLowerCase(), 'i')
-      if (re.test(url)) {
-        type = name.toLowerCase()
-      }
-    })
-
-    return type
-  }
-
   const submitHandler = async (url: string) => {
     setLoading(true)
     setAnswers(null)
 
-    const type = getQuizType(url)
+    try {
+      const { data: res } = await axios.post('/api/getAnswer', null, {
+        params: {
+          url,
+        },
+      })
 
-    const { data: res } = await axios.post('/api/getAnswer', null, {
-      params: {
-        url,
-        type,
-      },
-    })
-
-    if (res.error) {
+      setAnswers(res)
+    } catch {
       showNotification({
         title: t('err'),
-        message: res.error === 404 && t('urlErr'),
+        message: t('urlErr'),
         icon: <IconCircleX />,
       })
-    } else {
-      setAnswers(res)
     }
 
     setLoading(false)

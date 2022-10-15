@@ -27,5 +27,9 @@ export const config: Config = {
       name: 'Friend2021',
       href: 'https://friend2021.com/',
     },
+    {
+      name: 'Daremessage',
+      href: 'https://daremessage.xyz',
+    },
   ],
 }

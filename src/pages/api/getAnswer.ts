@@ -4,24 +4,47 @@ import { JSDOM } from 'jsdom'
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { buddymojoAPI } from 'src/lib/buddymojoAPI'
 
+import { config } from '@/data/config'
+
 export type Answer = {
   title: string
   content: string
+}
+
+const getQuizType = (url: string) => {
+  let type: string
+
+  config.support_site.forEach((item) => {
+    const { name } = item
+
+    const re = new RegExp(name.toLowerCase(), 'i')
+    if (re.test(url)) {
+      type = name.toLowerCase()
+    }
+  })
+
+  return type
 }
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const { url, type } = req.query
-  const formattedURL = url.toString().replace(/^(https?|ftp):\/\//, '')
+  const url = req.query.url as string
+  const formattedURL = url.replace(/^(https?|ftp):\/\//, '')
+
+  const type = getQuizType(formattedURL)
+
+  const errorHandler = () => res.status(404).end()
+
+  if (!type) return errorHandler()
 
   // * buddymojo
   if (type === 'buddymojo') {
     const answers: Array<Answer> = []
     const apiID = buddymojoAPI(formattedURL.split('.')[0])
 
-    const { data: html } = await axios.get(url.toString())
+    const { data: html } = await axios.get(url)
 
     const quizId = html.match(/var userQuizId {6}= {3}(.+);/)
 
@@ -47,16 +70,16 @@ export default async function handler(
 
       return res.status(200).send(answers)
     } else {
-      return res.status(200).send({ error: 404 })
+      return errorHandler()
     }
   }
 
   // * holaquiz / bakequiz / hellomate
-  if (/holaquiz|bakequiz|hellomate/.test(type.toString())) {
+  if (type === 'holaquiz' || type === 'hellomate' || type === 'bakequiz') {
     const answers: Array<Answer> = []
     const re = new RegExp('var arrQuizDetail=(.+);')
     const { data: html } = await axios.post(
-      url.toString(),
+      url,
       'userFullName=user&sync_quiz=%25E9%2596%258B%25E5%25A7%258B',
       {
         headers: {
@@ -87,19 +110,18 @@ export default async function handler(
 
       return res.status(200).send(answers)
     } else {
-      return res.status(200).send({ error: 404 })
+      return errorHandler()
     }
   }
 
   // * friend2021
-  if (/friend2021/.test(type.toString())) {
-    const { data: html } = await axios.get(url.toString())
+  if (type === 'friend2021') {
+    const answers: Array<Answer> = []
+    const { data: html } = await axios.get(url)
     const { document } = new JSDOM(html).window
 
-    const answers: Array<Answer> = []
-
     document.querySelectorAll('.question_attempt_text').forEach((el) => {
-      const title = el.textContent
+      const title = el.textContent.trim()
       const content = el.nextElementSibling
         .querySelector('.answer.center.correct')
         .textContent.trim()
@@ -110,8 +132,44 @@ export default async function handler(
       })
     })
 
+    if (answers.length === 0) return errorHandler()
+
     return res.status(200).send(answers)
   }
 
-  res.status(404).send({ error: 404 })
+  if (type === 'daremessage' && url) {
+    const answers: Array<Answer> = []
+    const re = new RegExp('var qa_array =(.+);')
+    const { data: html } = await axios.post(
+      `${url.replace('quiz', 'challenge')}?username=test`
+    )
+    const { document } = new JSDOM(html).window
+
+    if (html.match(re)) {
+      const qa_array = JSON.parse(
+        html.match(re)[1].replace(/(['"])?([a-z0-9A-Z_]+)(['"])?:/g, '"$2": ')
+      )
+
+      document.querySelectorAll('.question.unans').forEach((el) => {
+        const answerId = qa_array[el.getAttribute('id')]
+        const title = el
+          .querySelector('.question-text.que-text')
+          .textContent.trim()
+        const content = el
+          .querySelector(`.qns.option[val="${answerId}"]`)
+          .textContent.trim()
+
+        answers.push({
+          title,
+          content,
+        })
+      })
+
+      return res.status(200).send(answers)
+    } else {
+      return errorHandler()
+    }
+  }
+
+  return errorHandler()
 }
