@@ -78,10 +78,12 @@
 
 ## 路線圖
 
-- [x] Support holaquiz
-- [x] Support hellomate
-- [x] Support buddymojo
-- [x] Support bakequiz
+- [x] Support [Holaquiz](https://holaquiz.com)
+- [x] Support [Buddymojo](https://buddymojo.com)
+- [x] Support [Bakequiz](https://bakequiz.com)
+- [x] Support [Hellomate](https://cn.hellomate.me)
+- [x] Support [Friend2021](https://friend2021.com)
+- [x] Support [Daremessage](https://daremessage.xyz)
 - [x] Multi-language Support
   - [x] Chinese
   - [x] English
