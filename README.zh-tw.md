@@ -84,6 +84,7 @@
 - [x] Support [Hellomate](https://cn.hellomate.me)
 - [x] Support [Friend2021](https://friend2021.com)
 - [x] Support [Daremessage](https://daremessage.xyz)
+- [x] Support [Dudequiz](https://www.dudequiz.com)
 - [x] Multi-language Support
   - [x] Chinese
   - [x] English

@@ -41,7 +41,7 @@ export default async function handler(
 
   // * buddymojo
   if (type === 'buddymojo') {
-    const answers: Array<Answer> = []
+    const _answers: Array<Answer> = []
     const apiID = buddymojoAPI(formattedURL.split('.')[0])
 
     const { data: html } = await axios.get(url)
@@ -62,13 +62,13 @@ export default async function handler(
         const title = question.question
         const content = question.options[question.choosenOption - 1].content
 
-        answers.push({
+        _answers.push({
           title,
           content,
         })
       })
 
-      return res.status(200).send(answers)
+      return res.status(200).send(_answers)
     } else {
       return errorHandler()
     }
@@ -76,7 +76,7 @@ export default async function handler(
 
   // * holaquiz / bakequiz / hellomate
   if (type === 'holaquiz' || type === 'hellomate' || type === 'bakequiz') {
-    const answers: Array<Answer> = []
+    const _answers: Array<Answer> = []
     const re = new RegExp('var arrQuizDetail=(.+);')
     const { data: html } = await axios.post(
       url,
@@ -102,13 +102,13 @@ export default async function handler(
         const title = question.question
         const content = document.body.textContent.trim()
 
-        answers.push({
+        _answers.push({
           title,
           content,
         })
       })
 
-      return res.status(200).send(answers)
+      return res.status(200).send(_answers)
     } else {
       return errorHandler()
     }
@@ -116,7 +116,7 @@ export default async function handler(
 
   // * friend2021
   if (type === 'friend2021') {
-    const answers: Array<Answer> = []
+    const _answers: Array<Answer> = []
     const { data: html } = await axios.get(url)
     const { document } = new JSDOM(html).window
 
@@ -126,19 +126,19 @@ export default async function handler(
         .querySelector('.answer.center.correct')
         .textContent.trim()
 
-      answers.push({
+      _answers.push({
         title,
         content,
       })
     })
 
-    if (answers.length === 0) return errorHandler()
+    if (_answers.length === 0) return errorHandler()
 
-    return res.status(200).send(answers)
+    return res.status(200).send(_answers)
   }
 
   if (type === 'daremessage' && url) {
-    const answers: Array<Answer> = []
+    const _answers: Array<Answer> = []
     const re = new RegExp('var qa_array =(.+);')
     const { data: html } = await axios.post(
       `${url.replace('quiz', 'challenge')}?username=test`
@@ -159,13 +159,51 @@ export default async function handler(
           .querySelector(`.qns.option[val="${answerId}"]`)
           .textContent.trim()
 
-        answers.push({
+        _answers.push({
           title,
           content,
         })
       })
 
-      return res.status(200).send(answers)
+      return res.status(200).send(_answers)
+    } else {
+      return errorHandler()
+    }
+  }
+
+  if (type === 'dudequiz') {
+    const _answers: Array<Answer> = []
+    const quizURL = new URL(url)
+    const id = quizURL.searchParams.get('quiz')
+
+    if (id) {
+      const {
+        data: { answers, author, questions, quizLanguage },
+      } = await axios.post('https://app.dudequiz.com/get-dudes-quiz', {
+        quizId: id,
+      })
+      const _questions: Array<number> = JSON.parse(questions)
+
+      const { data } = await axios.get(
+        `https://www.dudequiz.com/static/js/translations_${quizLanguage}.js`
+      )
+      const re = new RegExp('var questionsDude = \\[(.+)];', 's')
+      const QA = JSON.parse(`[${data.match(re)[1]}]`)
+      const answersArray: Array<number> = answers
+        .split('')
+        .map((question: string) => Number(question))
+
+      _questions.forEach((question, i) => {
+        const title = QA[question].question.replace('AUTHOR', author)
+        const content = QA[question].altText[answersArray[i]]
+
+        _answers.push({
+          title,
+          content,
+        })
+      })
+
+      return res.status(200).send(_answers)
     } else {
       return errorHandler()
     }

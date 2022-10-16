@@ -83,6 +83,7 @@ This is an example of how you may give instructions on setting up your project l
 - [x] Support [Hellomate](https://cn.hellomate.me)
 - [x] Support [Friend2021](https://friend2021.com)
 - [x] Support [Daremessage](https://daremessage.xyz)
+- [x] Support [Dudequiz](https://www.dudequiz.com)
 - [x] Multi-language Support
   - [x] Chinese
   - [x] English

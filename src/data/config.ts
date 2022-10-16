@@ -31,5 +31,9 @@ export const config: Config = {
       name: 'Daremessage',
       href: 'https://daremessage.xyz',
     },
+    {
+      name: 'Dudequiz',
+      href: 'https://www.dudequiz.com',
+    },
   ],
 }
