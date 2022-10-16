@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import {
-  Box,
   Button,
   Container,
   createStyles,
   Group,
+  List,
   LoadingOverlay,
   Text,
   TextInput,
@@ -126,15 +126,15 @@ export default function Home() {
             </Group>
           </form>
         </div>
-        <Box my={48}>
+        <List my={48} type='ordered'>
           {answers !== null &&
             answers.map((answer: Answer, i: number) => (
-              <Box my={16} key={i}>
-                <Text>{`${i + 1}. ${answer.title}`}</Text>
+              <List.Item my={16} key={i}>
+                <Text>{answer.title}</Text>
                 <Text weight={600}>{answer.content}</Text>
-              </Box>
+              </List.Item>
             ))}
-        </Box>
+        </List>
         <Content />
       </Container>
     </>
