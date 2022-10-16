@@ -38,8 +38,6 @@ export default async function handler(
 
   const errorHandler = () => res.status(404).end()
 
-  if (!type) return errorHandler()
-
   // * buddymojo
   if (type === 'buddymojo') {
     const _answers: Array<Answer> = []
@@ -47,7 +45,8 @@ export default async function handler(
 
     const { data: html } = await axios.get(url)
 
-    const quizId = html.match(/var userQuizId {6}= {3}(.+);/)
+    const re = new RegExp('var userQuizId {6}= {3}(.+);')
+    const quizId = html.match(re)
 
     if (quizId) {
       const apiURL = `https://buddymojo.com/api/v1/quiz/${apiID}?userQuizId=${quizId[1].replace(
