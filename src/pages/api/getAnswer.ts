@@ -2,7 +2,8 @@
 import axios from 'axios'
 import { JSDOM } from 'jsdom'
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { buddymojoAPI } from 'src/lib/buddymojoAPI'
+
+import { buddymojoAPI } from '@/lib/buddymojoAPI'
 
 import { config } from '@/data/config'
 
