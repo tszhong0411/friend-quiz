@@ -85,6 +85,8 @@
 - [x] Support [Friend2021](https://friend2021.com)
 - [x] Support [Daremessage](https://daremessage.xyz)
 - [x] Support [Dudequiz](https://www.dudequiz.com)
+- [x] Support [Helopal](https://helopal.club)
+- [x] Support [Quizyourfriends](https://www.quizyourfriends.com)
 - [x] Multi-language Support
   - [x] Chinese
   - [x] English
