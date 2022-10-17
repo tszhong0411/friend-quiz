@@ -5,3 +5,4 @@ Hellomate - https://cn.hellomate.me/sync-quiz/ltb7
 Friend2021 - https://friend2021.com/d20/quiz/89666956
 Daremessage - https://daremessage.xyz/quiz/fceae7
 Dudequiz - https://www.dudequiz.com/start.html?quiz=634be4a4339606f2555ab5f6
+Helopal - https://helopal.club/ch/d/111241504

@@ -137,7 +137,7 @@ export default async function handler(
     return res.status(200).send(_answers)
   }
 
-  if (type === 'daremessage' && url) {
+  if (type === 'daremessage') {
     const _answers: Array<Answer> = []
     const re = new RegExp('var qa_array =(.+);')
     const { data: html } = await axios.post(
@@ -182,6 +182,7 @@ export default async function handler(
       } = await axios.post('https://app.dudequiz.com/get-dudes-quiz', {
         quizId: id,
       })
+
       const _questions: Array<number> = JSON.parse(questions)
 
       const { data } = await axios.get(
@@ -196,6 +197,32 @@ export default async function handler(
       _questions.forEach((question, i) => {
         const title = QA[question].question.replace('AUTHOR', author)
         const content = QA[question].altText[answersArray[i]]
+
+        _answers.push({
+          title,
+          content,
+        })
+      })
+
+      return res.status(200).send(_answers)
+    } else {
+      return errorHandler()
+    }
+  }
+
+  if (type === 'helopal') {
+    const _answers: Array<Answer> = []
+    const { data: html } = await axios.get(url)
+    const { document } = new JSDOM(html).window
+
+    if (document.getElementById('nametb')) {
+      document.querySelectorAll('.question-div.ng-scope').forEach((el) => {
+        const title = el
+          .querySelector('.questions h5.text-center b')
+          .textContent.trim()
+        const content = el
+          .querySelector('.card.options.option.option-ans.correct')
+          .textContent.trim()
 
         _answers.push({
           title,
