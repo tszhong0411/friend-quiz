@@ -37,7 +37,8 @@ export default function Home() {
     },
 
     validate: {
-      url: (value) => (/^(https):\/\/[^ "]+$/.test(value) ? null : t('urlErr')),
+      url: (value) =>
+        /^(https?):\/\/[^ "]+$/.test(value) ? null : t('urlErr'),
     },
   })
 

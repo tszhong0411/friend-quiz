@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from 'axios'
-import { JSDOM } from 'jsdom'
+import { JSDOM, VirtualConsole } from 'jsdom'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 import { buddymojoAPI } from '@/lib/buddymojoAPI'
@@ -32,9 +32,9 @@ export default async function handler(
   res: NextApiResponse
 ) {
   const url = req.query.url as string
-  const formattedURL = url.replace(/^(https?|ftp):\/\//, '')
+  const formattedURL = url.replace(/^(https?):\/\//, '')
 
-  const type = getQuizType(formattedURL)
+  const type = getQuizType(url)
 
   const errorHandler = () => res.status(404).end()
 
@@ -234,6 +234,59 @@ export default async function handler(
     } else {
       return errorHandler()
     }
+  }
+
+  if (type === 'quizyourfriends') {
+    const _answers: Array<Answer> = []
+    const virtualConsole = new VirtualConsole()
+
+    const { data } = await axios.get(url)
+    const { document } = new JSDOM(data, { virtualConsole }).window
+
+    const id = (document.querySelector('input#id[name=id]') as HTMLInputElement)
+      .value
+    const qyfcode = (
+      document.querySelector('input[name=qyfcode]') as HTMLInputElement
+    ).value
+
+    const { data: html } = await axios.post(
+      `https://www.quizyourfriends.com/quiz-questions?id=${id}`,
+      `id=${id}&qyfcode=${qyfcode}`,
+      {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+      }
+    )
+    const { document: questionDocument } = new JSDOM(html, { virtualConsole })
+      .window
+
+    const re = new RegExp('"questions": \\[{(.+)}],', 's')
+    const answersArray = JSON.parse(`[{${html.match(re)[1]}}]`)
+
+    questionDocument.querySelectorAll('.wpvqgr-page').forEach((el, i) => {
+      const answerIndex = answersArray[
+        i
+      ].wpvqgr_quiz_questions_answers.findIndex(
+        (answer: { wpvqgr_quiz_questions_answers_right: boolean }) =>
+          answer.wpvqgr_quiz_questions_answers_right === true
+      )
+
+      const title = el
+        .querySelector('.wpvqgr-question-label')
+        .textContent.trim()
+      const content = el
+        .querySelectorAll('.wpvqgr-answer-col')
+        [answerIndex].querySelector('.wpvqgr-answer-label b')
+        .textContent.trim()
+
+      _answers.push({
+        title,
+        content,
+      })
+    })
+
+    return res.status(200).send(_answers)
   }
 
   return errorHandler()

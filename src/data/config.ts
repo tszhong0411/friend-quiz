@@ -39,5 +39,9 @@ export const config: Config = {
       name: 'Helopal',
       href: 'https://helopal.club',
     },
+    {
+      name: 'Quizyourfriends',
+      href: 'https://www.quizyourfriends.com',
+    },
   ],
 }
