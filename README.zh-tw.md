@@ -87,6 +87,7 @@
 - [x] Support [Dudequiz](https://www.dudequiz.com)
 - [x] Support [Helopal](https://helopal.club)
 - [x] Support [Quizyourfriends](https://www.quizyourfriends.com)
+- [x] Support [Matequiz](https://www.matequiz.com)
 - [x] Multi-language Support
   - [x] Chinese
   - [x] English

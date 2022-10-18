@@ -43,5 +43,9 @@ export const config: Config = {
       name: 'Quizyourfriends',
       href: 'https://www.quizyourfriends.com',
     },
+    {
+      name: 'Matequiz',
+      href: 'https://www.matequiz.com',
+    },
   ],
 }

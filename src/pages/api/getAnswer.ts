@@ -289,5 +289,38 @@ export default async function handler(
     return res.status(200).send(_answers)
   }
 
+  if (type === 'matequiz') {
+    const _answers: Array<Answer> = []
+    const quizURL = new URL(url)
+    const id = quizURL.searchParams.get('quiz')
+
+    if (id) {
+      const { data } = await axios.post('https://app.matequiz.com/get-quiz', {
+        quizId: id,
+      })
+
+      const questions = JSON.parse(decodeURIComponent(data.questions)).map(
+        (question: any) => JSON.parse(question)
+      )
+      const answersArray: Array<number> = data.answers
+        .split('')
+        .map((question: string) => Number(question) - 1)
+
+      questions.forEach(({ question, answers }, i: number) => {
+        const title = question
+        const content = answers[answersArray[i]]
+
+        _answers.push({
+          title,
+          content,
+        })
+      })
+
+      return res.status(200).send(_answers)
+    } else {
+      return errorHandler()
+    }
+  }
+
   return errorHandler()
 }
