@@ -8,14 +8,18 @@ import { useStyles } from '../Header.styles'
 const ThemeSwitch = () => {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme()
   const dark = colorScheme === 'dark'
-  const { classes } = useStyles()
   const { t } = useTranslation('common')
+  const { classes } = useStyles()
 
   return (
     <Tooltip label={dark ? t('lightmode') : t('darkmode')} openDelay={500}>
       <Button
-        variant='filled'
+        variant='light'
         color='gray'
+        sx={{
+          width: 36,
+          padding: 0,
+        }}
         className={classes.button}
         onClick={() => toggleColorScheme()}
       >

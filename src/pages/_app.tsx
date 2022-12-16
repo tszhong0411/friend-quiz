@@ -8,11 +8,9 @@ import {
 import { useHotkeys, useLocalStorage } from '@mantine/hooks'
 import { NotificationsProvider } from '@mantine/notifications'
 import type { AppProps } from 'next/app'
-import Script from 'next/script'
 import React from 'react'
 
-import { isProd } from '@/lib/isProduction'
-
+import Analytics from '@/components/Analytics'
 import Footer from '@/components/Layout/Footer'
 import Header from '@/components/Layout/Header'
 
@@ -78,14 +76,6 @@ export default function MyApp(props: AppProps & { colorScheme: ColorScheme }) {
               },
             })}
           />
-          {isProd && (
-            <Script
-              async
-              defer
-              data-website-id='e1e23abc-a33d-438b-9621-a961221fdd51'
-              src='https://umami.honghong.me/umami.js'
-            />
-          )}
           <Header />
           <Container
             sx={(theme) => ({
@@ -95,6 +85,7 @@ export default function MyApp(props: AppProps & { colorScheme: ColorScheme }) {
               },
             })}
           >
+            <Analytics />
             <Component {...pageProps} />
           </Container>
           <Footer />

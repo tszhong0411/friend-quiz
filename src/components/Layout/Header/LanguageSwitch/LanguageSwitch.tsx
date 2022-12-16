@@ -1,4 +1,4 @@
-import { Menu, Tooltip, UnstyledButton } from '@mantine/core'
+import { Button, Menu, Tooltip } from '@mantine/core'
 import { useLocalStorage } from '@mantine/hooks'
 import { IconChevronDown, IconLanguage } from '@tabler/icons'
 import { useRouter } from 'next/router'
@@ -6,13 +6,13 @@ import setLanguage from 'next-translate/setLanguage'
 import useTranslation from 'next-translate/useTranslation'
 import React from 'react'
 
-import { useStyles } from './LanguageSwitch.styles'
+import { useStyles } from '../Header.styles'
 
 export default function LanguageSwitch() {
-  const { classes } = useStyles()
   const router = useRouter()
   const [locale, setLocale] = useLocalStorage({ key: 'locale' })
   const { t } = useTranslation('common')
+  const { classes } = useStyles()
 
   React.useEffect(() => {
     const redirect = async () => {
@@ -45,10 +45,18 @@ export default function LanguageSwitch() {
       <Tooltip label={t('switchLanguage')} openDelay={500}>
         <span>
           <Menu.Target>
-            <UnstyledButton className={classes.control}>
+            <Button
+              variant='light'
+              color='gray'
+              sx={{
+                width: 72,
+                padding: 0,
+              }}
+              className={classes.button}
+            >
               <IconLanguage size={18} />
               <IconChevronDown size={16} />
-            </UnstyledButton>
+            </Button>
           </Menu.Target>
         </span>
       </Tooltip>
