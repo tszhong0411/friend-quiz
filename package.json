@@ -28,6 +28,7 @@
     "@mantine/next": "^5.5.5",
     "@mantine/notifications": "^5.5.5",
     "@tabler/icons": "^1.103.0",
+    "@vercel/analytics": "^0.1.6",
     "accept-language": "^3.0.18",
     "axios": "^1.1.2",
     "jsdom": "^20.0.1",
