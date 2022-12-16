@@ -19,8 +19,9 @@ import { NextSeo } from 'next-seo'
 import useTranslation from 'next-translate/useTranslation'
 import React from 'react'
 
+import { favicons } from '@/lib/favicons'
+
 import { Content } from '@/components/Intro'
-import { Favicons } from '@/components/Layout/Favicons'
 
 import { Answer } from './api/getAnswer'
 
@@ -84,14 +85,14 @@ export default function Home() {
           description: 'Friend quiz cheat tool',
           images: [
             {
-              url: 'https://friendquiz.honghong.me/static/images/banner.png',
-              width: 1200,
-              height: 630,
+              url: 'https://friendquiz.honghong.me/static/images/og.png',
+              width: 1600,
+              height: 960,
               alt: 'Friend quiz cheat tool',
             },
           ],
         }}
-        additionalLinkTags={[...Favicons]}
+        additionalLinkTags={[...favicons]}
       />
       <Container size={960}>
         <div>
