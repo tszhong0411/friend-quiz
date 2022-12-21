@@ -23,9 +23,7 @@
 
 ## 🚀 Demo
 
-<a href="https://friendquiz.honghong.me" target="_blank">
-  <img src="https://img.shields.io/badge/website-friend--quiz.honghong.me-blue?style=flat-square&color=black" />
-</a>
+<img src="https://img.shields.io/badge/website-friend--quiz.honghong.me-blue?style=flat-square&color=black" />
 
 <img src="https://img.shields.io/github/repo-size/tszhong0411/friend-quiz?style=flat-square&color=green" />
 
