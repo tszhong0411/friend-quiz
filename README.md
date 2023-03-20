@@ -21,18 +21,6 @@
 - Favicon: [realfavicongenerator](https://realfavicongenerator.net/)
 - UI: [Mantine](https://mantine.dev)
 
-## 🚀 Demo
-
-<img src="https://img.shields.io/badge/website-friend--quiz.honghong.me-blue?style=flat-square&color=black" />
-
-<img src="https://img.shields.io/github/repo-size/tszhong0411/friend-quiz?style=flat-square&color=green" />
-
-<img src="https://img.shields.io/github/languages/top/tszhong0411/friend-quiz?style=flat-square" />
-
-<img src="https://img.shields.io/github/commit-activity/m/tszhong0411/friend-quiz?color=orange&style=flat-square" />
-
-<img src="https://img.shields.io/github/deployments/tszhong0411/friend-quiz/Production?style=flat-square" />
-
 ## 👋 Running locally
 
 1. Clone this repo
