@@ -1,5 +1,5 @@
 <h1 align="center">
- Friend quiz cheat tool
+ 好友測驗作弊工具
 </h1>
 
 <p align="center">
@@ -7,53 +7,41 @@
 </p>
 
 <p align="center">
-    <a href="https://friendquiz.honghong.me" target="blank">View Demo</a>
+    <a href="https://friendquiz.honghong.me" target="blank">線上查看</a>
     ·
-    <a href="https://github.com/tszhong0411/friend-quiz/issues/new/choose">Report Bug</a>
+    <a href="https://github.com/tszhong0411/friend-quiz/issues/new/choose">回報錯誤</a>
     ·
-    <a href="https://github.com/tszhong0411/friend-quiz/issues/new/choose">Request Feature</a>
+    <a href="https://github.com/tszhong0411/friend-quiz/issues/new/choose">要求新功能</a>
 </p>
 
 ## 🌍 friendquiz.honghong.me
 
-- Framework: [Next.js](https://nextjs.org/)
-- Deployment: [Vercel](https://vercel.com)
-- Favicon: [realfavicongenerator](https://realfavicongenerator.net/)
+- 框架: [Next.js](https://nextjs.org/)
+- 部署: [Vercel](https://vercel.com)
+- 網站圖標: [realfavicongenerator](https://realfavicongenerator.net/)
 - UI: [Mantine](https://mantine.dev)
 
-## 👋 Running locally
+## 👋 在本地運行
 
-1. Clone this repo
+1. Clone 這個倉庫
 
 ```sh
 git clone https://github.com/tszhong0411/friend-quiz.git
 ```
 
-2. Change directory
+2. 更改目錄
 
 ```sh
 cd friend-quiz
 ```
 
-3. Install yarn Packages
+3. 安裝 packages
 
 ```sh
 yarn
 ```
 
-## 🍰 Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Commit your Changes (`git commit -m 'Add some Feature'`)
-3. Push to the Branch (`git push`)
-4. Open a Pull Request
-
 <hr>
 <p align="center">
-Made with ❤️ in Hong Kong
+用 ❤️ 製作在 Hong Kong
 </p>
