@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-  <img src="https://socialify.git.ci/tszhong0411/friend-quiz/image?forks=1&issues=1&logo=https%3A%2F%2Ffriendquiz.honghong.me%2Fstatic%2Fimages%2Fprojects%2ffriend-quiz%2flogo.png&name=1&owner=1&pattern=Charlie%20Brown&pulls=1&stargazers=1&theme=Dark">
+  <img src="https://socialify.git.ci/tszhong0411/friend-quiz/image?forks=1&issues=1&logo=https://honghong.me/static/images/projects/friend-quiz/logo.png&name=1&owner=1&pattern=Charlie%20Brown&pulls=1&stargazers=1&theme=Dark">
 </p>
 
 <p align="center">
