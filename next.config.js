@@ -1,21 +1,13 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const nextTranslate = require('next-translate')
-
-/**
- * @type {import('next').NextConfig}
- */
-
+/** @type {import('next').NextConfig} */
 const nextConfig = {
-  swcMinify: true,
-  reactStrictMode: true,
-  pageExtensions: ['ts', 'tsx', 'js', 'jsx'],
+  experimental: {
+    appDir: true,
+    typedRoutes: true,
+  },
+
   images: {
     domains: ['img.holaquiz.com', 'img.bakequiz.com', 'img.theshookers.com'],
   },
-
-  eslint: {
-    dirs: ['src'],
-  },
 }
 
-module.exports = nextTranslate(nextConfig)
+export default nextConfig

@@ -1,49 +1,50 @@
-import { ActionIcon, Container, Group, Text } from '@mantine/core'
 import {
-  IconBrandGithub,
   IconBrandInstagram,
+  IconBrandTwitter,
   IconBrandYoutube,
-} from '@tabler/icons'
-import React from 'react'
+} from '@tabler/icons-react'
 
-import Link from '@/components/Link'
+type Links = {
+  href: string
+  icon: JSX.Element
+}[]
 
-import { useStyles } from './Footer.styles'
-
-export default function Footer() {
-  const { classes } = useStyles()
+const Footer = () => {
+  const links: Links = [
+    {
+      href: 'https://twitter.com/TszhongLai0411',
+      icon: <IconBrandTwitter size={22} stroke={2} />,
+    },
+    {
+      href: 'https://www.youtube.com/@tszhong0411',
+      icon: <IconBrandYoutube size={22} stroke={2} />,
+    },
+    {
+      href: 'https://www.instagram.com/tszhong0411/',
+      icon: <IconBrandInstagram size={22} stroke={2} />,
+    },
+  ]
 
   return (
-    <div className={classes.footer}>
-      <Container className={classes.inner}>
-        <Text>&copy; {new Date().getFullYear()} 小康</Text>
-        <Group spacing={0} className={classes.links} position='right' noWrap>
-          <ActionIcon
-            size='lg'
-            component={Link}
-            noIcon
-            href='https://github.com/tszhong0411'
-          >
-            <IconBrandGithub size={18} />
-          </ActionIcon>
-          <ActionIcon
-            size='lg'
-            component={Link}
-            noIcon
-            href='https://www.youtube.com/channel/UC2hMWOaOlk9vrkvFVaGmn0Q'
-          >
-            <IconBrandYoutube size={18} />
-          </ActionIcon>
-          <ActionIcon
-            size='lg'
-            component={Link}
-            noIcon
-            href='https://www.instagram.com/tszhong0411/'
-          >
-            <IconBrandInstagram size={18} />
-          </ActionIcon>
-        </Group>
-      </Container>
-    </div>
+    <footer className='py-4 px-6 max-w-4xl mx-auto'>
+      <div className='flex items-center justify-between'>
+        <p className='text-sm mb-4'>© 小康 {new Date().getFullYear()}</p>
+
+        <div className='flex items-center gap-4'>
+          {links.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              {link.icon}
+            </a>
+          ))}
+        </div>
+      </div>
+    </footer>
   )
 }
+
+export default Footer

@@ -1,35 +1,17 @@
-import {
-  Container,
-  Group,
-  Header as MantineHeader,
-  useMantineColorScheme,
-} from '@mantine/core'
-import React from 'react'
+import Link from 'next/link'
 
-import Logo from '@/components/Logo'
+import Logo from './Logo'
 
-import { useStyles } from './Header.styles'
-import LanguageSwitch from './LanguageSwitch'
-import ThemeSwitch from './ThemeSwitch'
-
-export const HEADER_HEIGHT = 56
-
-export default function Header() {
-  const { classes } = useStyles()
-  const { colorScheme } = useMantineColorScheme()
-  const dark = colorScheme === 'dark'
-
+const Header = () => {
   return (
-    <>
-      <MantineHeader height={HEADER_HEIGHT} sx={{ position: 'relative' }}>
-        <Container className={classes.inner}>
-          <Logo width={20} color={dark ? 'white' : 'black'} />
-          <Group spacing={8} className={classes.social} position='right' noWrap>
-            <LanguageSwitch />
-            <ThemeSwitch />
-          </Group>
-        </Container>
-      </MantineHeader>
-    </>
+    <header className='fixed top-0 left-0 right-0 z-40 shadow-sm backdrop-blur-[10px] bg-black/50 saturate-100'>
+      <div className='container mx-auto px-4 py-6 flex justify-between items-center'>
+        <Link href='/' className='flex items-center'>
+          <Logo />
+        </Link>
+      </div>
+    </header>
   )
 }
+
+export default Header
