@@ -43,8 +43,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: 'https://honghong.me/static/images/projects/friend-quiz/cover.png',
-        width: 1600,
-        height: 960,
+        width: 1200,
+        height: 630,
         alt: site.description,
       },
     ],
