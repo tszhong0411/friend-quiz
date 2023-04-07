@@ -1,5 +1,5 @@
 <h1 align="center">
- 好友測驗作弊工具
+ Friend quiz cheat tool
 </h1>
 
 <p align="center">
@@ -7,35 +7,35 @@
 </p>
 
 <p align="center">
-    <a href="https://friendquiz.honghong.me" target="blank">線上查看</a>
+    <a href="https://friendquiz.honghong.me" target="blank">View Online</a>
     ·
-    <a href="https://github.com/tszhong0411/friend-quiz/issues/new/choose">回報錯誤</a>
+    <a href="https://github.com/tszhong0411/friend-quiz/issues/new/choose">Report Bug</a>
     ·
-    <a href="https://github.com/tszhong0411/friend-quiz/issues/new/choose">要求新功能</a>
+    <a href="https://github.com/tszhong0411/friend-quiz/issues/new/choose">Request New Feature</a>
 </p>
 
 ## 🌍 friendquiz.honghong.me
 
-- 框架: [Next.js](https://nextjs.org/)
-- 部署: [Vercel](https://vercel.com)
-- 網站圖標: [realfavicongenerator](https://realfavicongenerator.net/)
+- Framework: [Next.js](https://nextjs.org/)
+- Deployment: [Vercel](https://vercel.com)
+- Favicon: [realfavicongenerator](https://realfavicongenerator.net/)
 - UI: [Mantine](https://mantine.dev)
 
-## 👋 在本地運行
+## 👋 Running Locally
 
-1. Clone 這個倉庫
+1. Clone the repository
 
 ```sh
 git clone https://github.com/tszhong0411/friend-quiz.git
 ```
 
-2. 更改目錄
+2. Go to the project directory
 
 ```sh
 cd friend-quiz
 ```
 
-3. 安裝 packages
+3. Install dependencies
 
 ```sh
 yarn
@@ -43,5 +43,5 @@ yarn
 
 <hr>
 <p align="center">
-用 ❤️ 製作在 Hong Kong
+Made with ❤️ in Hong Kong
 </p>
