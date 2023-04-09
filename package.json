@@ -20,6 +20,7 @@
     "type-check": "tsc",
     "prepare": "husky install"
   },
+  "prettier": "@tszhong0411/prettier-config",
   "dependencies": {
     "@tabler/icons-react": "^2.12.0",
     "@vercel/analytics": "^0.1.11",
@@ -34,19 +35,16 @@
   "devDependencies": {
     "@commitlint/cli": "^17.5.1",
     "@commitlint/config-conventional": "^17.4.4",
+    "@tszhong0411/eslint-config": "^1.0.7",
+    "@tszhong0411/prettier-config": "^1.0.1",
+    "@tszhong0411/tsconfig": "^1.0.1",
     "@types/node": "18.15.11",
     "@types/react": "18.0.31",
     "@types/react-dom": "18.0.11",
-    "@typescript-eslint/eslint-plugin": "5.57.0",
-    "@typescript-eslint/parser": "5.57.0",
     "autoprefixer": "^10.4.14",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "8.37.0",
     "eslint-config-next": "13.2.4",
-    "eslint-config-prettier": "8.8.0",
-    "eslint-plugin-prettier": "4.2.1",
-    "eslint-plugin-simple-import-sort": "^10.0.0",
-    "eslint-plugin-unused-imports": "^2.0.0",
     "husky": "8.0.3",
     "lint-staged": "13.2.0",
     "postcss": "^8.4.21",
@@ -63,106 +61,14 @@
       "prettier -w"
     ]
   },
-  "prettier": {
-    "arrowParens": "always",
-    "singleQuote": true,
-    "jsxSingleQuote": true,
-    "tabWidth": 2,
-    "semi": false
-  },
   "eslintConfig": {
-    "env": {
-      "browser": true,
-      "es2021": true,
-      "node": true
-    },
-    "plugins": [
-      "@typescript-eslint",
-      "simple-import-sort",
-      "unused-imports"
-    ],
     "extends": [
-      "eslint:recommended",
-      "next",
       "next/core-web-vitals",
-      "plugin:@typescript-eslint/recommended",
-      "prettier"
+      "@tszhong0411/eslint-config"
     ],
-    "rules": {
-      "no-unused-vars": "off",
-      "no-console": "warn",
-      "@typescript-eslint/explicit-module-boundary-types": "off",
-      "react/display-name": "off",
-      "react/jsx-curly-brace-presence": [
-        "warn",
-        {
-          "props": "never",
-          "children": "never"
-        }
-      ],
-      "@typescript-eslint/no-unused-vars": "off",
-      "unused-imports/no-unused-imports": "warn",
-      "unused-imports/no-unused-vars": [
-        "warn",
-        {
-          "vars": "all",
-          "varsIgnorePattern": "^_",
-          "args": "after-used",
-          "argsIgnorePattern": "^_"
-        }
-      ],
-      "simple-import-sort/exports": "warn",
-      "simple-import-sort/imports": [
-        "warn",
-        {
-          "groups": [
-            [
-              "^@?\\w",
-              "^\\u0000"
-            ],
-            [
-              "^.+\\.s?css$"
-            ],
-            [
-              "^@/lib",
-              "^@/hooks"
-            ],
-            [
-              "^@/data"
-            ],
-            [
-              "^@/components",
-              "^@/container"
-            ],
-            [
-              "^@/store"
-            ],
-            [
-              "^@/"
-            ],
-            [
-              "^\\./?$",
-              "^\\.(?!/?$)",
-              "^\\.\\./?$",
-              "^\\.\\.(?!/?$)",
-              "^\\.\\./\\.\\./?$",
-              "^\\.\\./\\.\\.(?!/?$)",
-              "^\\.\\./\\.\\./\\.\\./?$",
-              "^\\.\\./\\.\\./\\.\\.(?!/?$)"
-            ],
-            [
-              "^@/types"
-            ],
-            [
-              "^"
-            ]
-          ]
-        }
-      ]
-    },
-    "globals": {
-      "React": true,
-      "JSX": true
+    "parserOptions": {
+      "project": "./tsconfig.json",
+      "ecmaVersion": "latest"
     }
   },
   "config": {
