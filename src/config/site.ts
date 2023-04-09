@@ -7,10 +7,11 @@ type Site = {
   apiURL: string
   title: string
   name: string
+  keywords: string[]
   titleTemplate: string
   description: string
   favicons: IconDescriptor[]
-  supportSites: {
+  supportedSites: {
     label: string
     url: string
   }[]
@@ -19,10 +20,12 @@ type Site = {
 export const site: Site = {
   url: isProduction ? 'https://honghong.me' : 'http://localhost:3000',
   apiURL: isProduction ? 'https://api.honghong.me' : 'http://localhost:8080',
-  title: '小康的好友測驗作弊工具',
+  title: 'Friend Quiz Cheating Tool - 小康',
   name: '小康',
-  titleTemplate: '- 小康的好友測驗作弊工具',
-  description: '想要在好友測驗中獲得滿分嗎？這個工具可以幫助您破解',
+  keywords: ['小康', 'Friend Quiz Cheating Tool', 'Friend Quiz Cheating'],
+  titleTemplate: '- Friend Quiz Cheating Tool - 小康',
+  description:
+    'Do you want to score full marks in a friend quiz? This tool can help you hack it.',
   favicons: [
     {
       rel: 'icon',
@@ -37,7 +40,7 @@ export const site: Site = {
       url: '/static/favicon/favicon-32x32.png',
     },
   ],
-  supportSites: [
+  supportedSites: [
     {
       label: 'Buddymojo',
       url: 'buddymojo.com/match/<id>',
