@@ -16,7 +16,8 @@ const Content = () => {
   const [answers, setAnswers] = React.useState<Answer[] | null>()
 
   const handleSubmit = async () => {
-    if (!inputRef.current?.value) return toast.error('請輸入測驗網址')
+    if (!inputRef.current?.value)
+      return toast.error('Please enter the quiz URL')
 
     setLoading(true)
     setAnswers(null)
@@ -29,55 +30,62 @@ const Content = () => {
 
     if (!res.ok) {
       setLoading(false)
-      return toast.error('請輸入正確的測驗網址')
+      return toast.error('Please enter the correct quiz URL')
     }
 
     const answers = await res.json()
 
     setLoading(false)
     setAnswers(answers)
+
+    return
   }
 
   return (
-    <div className='bg-black text-white flex items-center justify-center'>
-      <div className='w-full max-w-2xl px-4 space-y-12'>
+    <div className='flex items-center justify-center bg-black text-white'>
+      <div className='w-full max-w-2xl space-y-12 px-4'>
         <div>
-          <h1 className='text-4xl text-center font-bold mb-4'>
-            好友測驗作弊器
+          <h1 className='mb-4 text-center text-4xl font-bold'>
+            Friend Quiz Cheating Tool
           </h1>
           <p className='mb-8 text-center'>
-            輸入您的測驗網址，然後點擊 &quot;取得答案&quot; 來獲取您的測驗答案。
+            Enter your quiz URL, then click &apos;Get Answers&apos; to retrieve
+            your quiz answers.
           </p>
-          <div className='flex mb-4 gap-4'>
+          <div className='mb-4 flex gap-4'>
             <div className='flex-1'>
               <input
                 type='url'
-                className='bg-transparent rounded-lg py-2 px-4 focus:outline-none border hover:border-white border-accent-2 w-full'
-                placeholder='輸入測驗網址'
+                className='w-full rounded-lg border border-accent-2 bg-transparent px-4 py-2 transition-colors duration-300 hover:border-white focus:outline-none'
+                placeholder='Enter the quiz URL'
                 ref={inputRef}
               />
             </div>
             <button
-              className='rounded-md py-2 px-4 text-white font-bold border border-accent-2 hover:border-white disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:border-accent-5'
+              className='rounded-md border border-accent-2 px-4 py-2 font-bold text-white transition-colors duration-300 hover:border-white disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:border-accent-5'
               onClick={handleSubmit}
               disabled={loading}
+              type='button'
             >
-              取得答案
+              Get Answers
             </button>
           </div>
         </div>
         <div className='space-y-4'>
           {loading && (
-            <div className='space-y-4 mb-8'>
+            <div className='mb-8 space-y-4'>
               {Array.from(Array(10).keys()).map((i) => (
                 <Skeleton key={i} className='h-14' />
               ))}
             </div>
           )}
 
-          {answers && <h2 className='font-bold text-xl'>答案:</h2>}
+          {answers && <h2 className='text-xl font-bold'>Answers:</h2>}
           {answers?.map((answer, i) => (
-            <div key={i} className='my-4 border border-accent-2 p-4 rounded-md'>
+            <div
+              key={answer.title}
+              className='my-4 rounded-md border border-accent-2 p-4'
+            >
               <div>
                 {i + 1}. {answer.title}
               </div>
@@ -87,34 +95,34 @@ const Content = () => {
                   src={answer.image}
                   width={120}
                   height={120}
-                  className='rounded-sm my-2'
-                  alt={`Image of question ${i + 1}`}
+                  className='my-2 rounded-sm'
+                  alt={`Question ${i + 1}`}
                 />
               )}
               <div>{answer.content}</div>
             </div>
           ))}
 
-          <h2 className='font-bold text-xl'>支援網址:</h2>
+          <h2 className='text-xl font-bold'>Supported sites:</h2>
 
           <div className='relative overflow-x-auto'>
             <table className='w-full text-sm'>
-              <thead className='text-xs uppercase bg-accent-1 border-b border-accent-2'>
+              <thead className='border-b border-accent-2 bg-accent-1 text-xs uppercase'>
                 <tr>
-                  <th className='px-6 py-3'>網站名稱</th>
-                  <th className='px-6 py-3'>格式</th>
+                  <th className='px-6 py-3'>Site name</th>
+                  <th className='px-6 py-3'>Format</th>
                 </tr>
               </thead>
               <tbody>
-                {site.supportSites.map(({ label, url }, i) => (
+                {site.supportedSites.map(({ label, url }, i) => (
                   <tr
                     key={label}
                     className={clsx('bg-accent-1 text-center', {
                       ['border-b border-accent-2']:
-                        site.supportSites.length - 1 !== i,
+                        site.supportedSites.length - 1 !== i,
                     })}
                   >
-                    <td className='px-6 py-4 font-medium whitespace-nowrap'>
+                    <td className='whitespace-nowrap px-6 py-4 font-medium'>
                       {label}
                     </td>
                     <td className='px-6 py-4 text-sm'>{url}</td>

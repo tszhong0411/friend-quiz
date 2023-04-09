@@ -22,21 +22,21 @@
 }
 
 ::-webkit-scrollbar-track {
-  border-radius: 10px;
+  border-radius: 8px;
   background-color: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  @apply bg-red-500;
-}
-
-::-webkit-scrollbar-thumb:hover {
+  border-radius: 8px;
   @apply bg-red-600;
 }
 
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-red-700;
+}
+
 ::selection {
-  @apply bg-[rgba(249660.2)] text-[#ff4c4c];
+  @apply bg-red-600 text-white;
 }
 
 * {
