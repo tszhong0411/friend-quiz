@@ -18,7 +18,9 @@ type Site = {
 }
 
 export const site: Site = {
-  url: isProduction ? 'https://honghong.me' : 'http://localhost:3000',
+  url: isProduction
+    ? 'https://friendquiz.honghong.me'
+    : 'http://localhost:3000',
   apiURL: isProduction ? 'https://api.honghong.me' : 'http://localhost:8080',
   title: 'Friend Quiz Cheating Tool - 小康',
   name: '小康',
