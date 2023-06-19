@@ -22,10 +22,10 @@ export const site: Site = {
     ? 'https://friendquiz.honghong.me'
     : 'http://localhost:3000',
   apiURL: isProduction ? 'https://api.honghong.me' : 'http://localhost:8080',
-  title: 'Friend Quiz Cheating Tool - 小康',
-  name: '小康',
-  keywords: ['小康', 'Friend Quiz Cheating Tool', 'Friend Quiz Cheating'],
-  titleTemplate: '- Friend Quiz Cheating Tool - 小康',
+  title: 'Friend Quiz Cheating Tool - Hong',
+  name: 'Hong',
+  keywords: ['Hong', 'Friend Quiz Cheating Tool', 'Friend Quiz Cheating'],
+  titleTemplate: '- Friend Quiz Cheating Tool',
   description:
     'Do you want to score full marks in a friend quiz? This tool can help you hack it.',
   favicons: [
