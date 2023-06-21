@@ -94,7 +94,7 @@ const RootLayout = (props: RootLayoutProps) => {
     >
       <body className='overflow-x-hidden bg-accent-bg font-default text-accent-fg'>
         <Header />
-        <main className='relative mx-auto mb-16 max-w-4xl px-8 py-24'>
+        <main className='relative mx-auto mb-16 max-w-4xl px-2 py-24 sm:px-8'>
           {children}
         </main>
         <CustomToaster />
