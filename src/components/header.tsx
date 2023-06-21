@@ -1,6 +1,5 @@
+import { Logo } from '@tszhong0411/ui'
 import Link from 'next/link'
-
-import Logo from './Logo'
 
 const Header = () => {
   return (

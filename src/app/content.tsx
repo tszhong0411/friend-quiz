@@ -1,10 +1,8 @@
 'use client'
-
-import clsx from 'clsx'
+import { Button, Input, Skeleton } from '@tszhong0411/ui'
+import { cx } from '@tszhong0411/utils'
 import React from 'react'
 import { toast } from 'react-hot-toast'
-
-import Skeleton from '@/components/Skeleton'
 
 import { site } from '@/config/site'
 
@@ -41,6 +39,18 @@ const Content = () => {
     return
   }
 
+  const sortedSites = site.supportedSites.sort((a, b) => {
+    const labelA = a.label.toUpperCase()
+    const labelB = b.label.toUpperCase()
+    if (labelA < labelB) {
+      return -1
+    }
+    if (labelA > labelB) {
+      return 1
+    }
+    return 0
+  })
+
   return (
     <div className='flex items-center justify-center bg-black text-white'>
       <div className='w-full max-w-2xl space-y-12 px-4'>
@@ -52,23 +62,18 @@ const Content = () => {
             Enter your quiz URL, then click &apos;Get Answers&apos; to retrieve
             your quiz answers.
           </p>
-          <div className='mb-4 flex gap-4'>
+          <div className='mb-4 flex flex-col gap-4 sm:flex-row'>
             <div className='flex-1'>
-              <input
+              <Input
                 type='url'
-                className='w-full rounded-lg border border-accent-2 bg-transparent px-4 py-2 transition-colors duration-300 hover:border-white focus:outline-none'
                 placeholder='Enter the quiz URL'
+                className='w-full'
                 ref={inputRef}
               />
             </div>
-            <button
-              className='rounded-md border border-accent-2 px-4 py-2 font-bold text-white transition-colors duration-300 hover:border-white disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:border-accent-5'
-              onClick={handleSubmit}
-              disabled={loading}
-              type='button'
-            >
+            <Button onClick={handleSubmit} disabled={loading} type='button'>
               Get Answers
-            </button>
+            </Button>
           </div>
         </div>
         <div className='space-y-4'>
@@ -114,12 +119,12 @@ const Content = () => {
                 </tr>
               </thead>
               <tbody>
-                {site.supportedSites.map(({ label, url }, i) => (
+                {sortedSites.map(({ label, url }, i) => (
                   <tr
                     key={label}
-                    className={clsx('bg-accent-1 text-center', {
+                    className={cx('bg-accent-1 text-center', {
                       ['border-b border-accent-2']:
-                        site.supportedSites.length - 1 !== i,
+                        sortedSites.length - 1 !== i,
                     })}
                   >
                     <td className='whitespace-nowrap px-6 py-4 font-medium'>

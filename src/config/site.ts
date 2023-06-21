@@ -1,7 +1,5 @@
 import { IconDescriptor } from 'next/dist/lib/metadata/types/metadata-types'
 
-import { isProduction } from '@/lib/constants'
-
 type Site = {
   url: string
   apiURL: string
@@ -18,10 +16,14 @@ type Site = {
 }
 
 export const site: Site = {
-  url: isProduction
-    ? 'https://friendquiz.honghong.me'
-    : 'http://localhost:3000',
-  apiURL: isProduction ? 'https://api.honghong.me' : 'http://localhost:8080',
+  url:
+    process.env.NODE_ENV === 'production'
+      ? 'https://friendquiz.honghong.me'
+      : 'http://localhost:3000',
+  apiURL:
+    process.env.NODE_ENV === 'production'
+      ? 'https://api.honghong.me'
+      : 'http://localhost:8080',
   title: 'Friend Quiz Cheating Tool - Hong',
   name: 'Hong',
   keywords: ['Hong', 'Friend Quiz Cheating Tool', 'Friend Quiz Cheating'],
@@ -90,6 +92,10 @@ export const site: Site = {
     {
       label: 'Matequiz',
       url: 'www.matequiz.com/start.html?quiz=<id>',
+    },
+    {
+      label: 'Realtest',
+      url: 'cn.realtest.me/rt/sync-quiz/<id>',
     },
   ],
 }
