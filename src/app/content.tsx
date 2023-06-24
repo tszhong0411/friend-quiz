@@ -1,6 +1,6 @@
 'use client'
-import { Button, Input, Skeleton } from '@tszhong0411/ui'
-import { cx } from '@tszhong0411/utils'
+import { Button, Input, Skeleton } from '@codewithhong/ui'
+import { cx } from '@codewithhong/utils'
 import React from 'react'
 import { toast } from 'react-hot-toast'
 

@@ -5,10 +5,10 @@
   "license": "MIT",
   "type": "module",
   "description": "Friend quiz cheat tool",
-  "author": "Lai Tsz Hong <info@honghong.me> (https://github.com/tszhong0411/)",
+  "author": "Lai Tsz Hong <info@honghong.me> (https://github.com/codewithhong/)",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tszhong0411/friend-quiz.git"
+    "url": "git+https://github.com/codewithhong/friend-quiz.git"
   },
   "scripts": {
     "dev": "next dev",
@@ -20,11 +20,11 @@
     "type-check": "tsc --noEmit",
     "prepare": "husky install"
   },
-  "prettier": "@tszhong0411/prettier-config",
+  "prettier": "@codewithhong/prettier-config",
   "dependencies": {
+    "@codewithhong/ui": "^2.0.0",
+    "@codewithhong/utils": "^2.0.0",
     "@tabler/icons-react": "^2.22.0",
-    "@tszhong0411/ui": "^1.0.7",
-    "@tszhong0411/utils": "^1.0.3",
     "@vercel/analytics": "^1.0.1",
     "jsdom": "^22.1.0",
     "next": "13.4.6",
@@ -33,11 +33,11 @@
     "react-hot-toast": "^2.4.1"
   },
   "devDependencies": {
+    "@codewithhong/eslint-config": "^2.0.0",
+    "@codewithhong/prettier-config": "^2.0.0",
+    "@codewithhong/tsconfig": "^2.0.0",
     "@commitlint/cli": "^17.6.5",
     "@commitlint/config-conventional": "^17.6.5",
-    "@tszhong0411/eslint-config": "^1.0.13",
-    "@tszhong0411/prettier-config": "^1.0.2",
-    "@tszhong0411/tsconfig": "^1.0.1",
     "@types/node": "20.3.1",
     "@types/react": "18.2.13",
     "@types/react-dom": "18.2.6",
@@ -63,7 +63,7 @@
   "eslintConfig": {
     "extends": [
       "next/core-web-vitals",
-      "@tszhong0411/eslint-config"
+      "@codewithhong/eslint-config"
     ],
     "parserOptions": {
       "project": "./tsconfig.json",

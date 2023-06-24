@@ -3,15 +3,15 @@
 </h1>
 
 <p align="center">
-  <img src="https://socialify.git.ci/tszhong0411/friend-quiz/image?forks=1&issues=1&logo=https://honghong.me/static/images/projects/friend-quiz/logo.png&name=1&owner=1&pattern=Charlie%20Brown&pulls=1&stargazers=1&theme=Dark">
+  <img src="https://socialify.git.ci/codewithhong/friend-quiz/image?forks=1&issues=1&logo=https://honghong.me/static/images/projects/friend-quiz/logo.png&name=1&owner=1&pattern=Charlie%20Brown&pulls=1&stargazers=1&theme=Dark">
 </p>
 
 <p align="center">
     <a href="https://friendquiz.honghong.me" target="blank">View Online</a>
     ·
-    <a href="https://github.com/tszhong0411/friend-quiz/issues/new/choose">Report Bug</a>
+    <a href="https://github.com/codewithhong/friend-quiz/issues/new/choose">Report Bug</a>
     ·
-    <a href="https://github.com/tszhong0411/friend-quiz/issues/new/choose">Request New Feature</a>
+    <a href="https://github.com/codewithhong/friend-quiz/issues/new/choose">Request New Feature</a>
 </p>
 
 ## 🌍 friendquiz.honghong.me
@@ -26,7 +26,7 @@
 1. Clone the repository
 
 ```sh
-git clone https://github.com/tszhong0411/friend-quiz.git
+git clone https://github.com/codewithhong/friend-quiz.git
 ```
 
 2. Go to the project directory
