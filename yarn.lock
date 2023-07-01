@@ -1327,10 +1327,10 @@
   resolved "https://registry.yarnpkg.com/@tszhong0411/tsconfig/-/tsconfig-1.0.1.tgz#a8c01c88f4c911ae1aac4a3a6b13ceabad432dc9"
   integrity sha512-k4PMQkbVvrCwfY5f+15Pe63ekIbQE/nXAMa6apxDnGKg8312D79YpOjeL33dk7P+YmtlOj1dEZv9HqFRnlZrBQ==
 
-"@tszhong0411/ui@^1.0.7":
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/@tszhong0411/ui/-/ui-1.0.7.tgz#046600180df7c0fa94b6249a4b347db37e05a232"
-  integrity sha512-o3KKVljmJmI3u7bRfT6WI3wb2U65eP32AjCvNXUiSZZmBIw8UHkXjmKpA0wU20MeHxf7E+pa5H0zx+If272rbw==
+"@tszhong0411/ui@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@tszhong0411/ui/-/ui-3.0.0.tgz#3cf634e26c0e9ef88290628ec3cd603ebc850ccc"
+  integrity sha512-uoztSfVZJh7shwlsf87Rtbo0WgQIHBio0SWO3R4rn8uSr1fKNzYVXAhrVlrTV0wVWSliw92WMSb0xmkmq4efFQ==
   dependencies:
     "@radix-ui/react-accordion" "^1.1.1"
     "@radix-ui/react-alert-dialog" "^1.0.3"
@@ -1357,14 +1357,14 @@
     "@radix-ui/react-toggle" "^1.0.2"
     "@radix-ui/react-tooltip" "^1.0.5"
     "@tabler/icons-react" "^2.18.0"
-    "@tszhong0411/utils" "^1.0.3"
+    "@tszhong0411/utils" "^3.0.0"
     cmdk "^0.2.0"
     framer-motion "^10.12.10"
 
-"@tszhong0411/utils@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@tszhong0411/utils/-/utils-1.0.3.tgz#f0e6dff6c0f07fb583e2a36a67355cae4ca7b39c"
-  integrity sha512-W1IopTe1vqL+ShRTYY8UTcysPY90dqktw5inaipzRZiiTcWsEkmEvVm4wlxkMwjdx1mBVgxO6chvU8weHJ7D8A==
+"@tszhong0411/utils@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@tszhong0411/utils/-/utils-3.0.0.tgz#7248dfa956db966f5ff63f592a15180682b56575"
+  integrity sha512-7n1DerDp0IoPxa2/oVLKu3/dX18gTS1+gfQToe2ECiC2QDV3Wls1WxwKn/uIbMc+/PmwDW1+wZ3Dh/1Pc3JO9w==
   dependencies:
     class-variance-authority "^0.5.3"
     clsx "^1.2.1"
