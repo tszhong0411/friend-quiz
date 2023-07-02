@@ -1,5 +1,4 @@
 import { cx } from '@tszhong0411/utils'
-import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
 import { Inter, Noto_Sans_TC } from 'next/font/google'
 import '@/styles/globals.css'
@@ -99,7 +98,6 @@ const RootLayout = (props: RootLayoutProps) => {
         </main>
         <CustomToaster />
         <Footer />
-        <Analytics />
       </body>
     </html>
   )
