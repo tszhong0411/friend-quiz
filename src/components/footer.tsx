@@ -6,7 +6,7 @@ import {
 
 type Links = {
   href: string
-  icon: JSX.Element
+  icon: React.ReactNode
 }[]
 
 const Footer = () => {

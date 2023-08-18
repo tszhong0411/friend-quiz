@@ -1,6 +1,6 @@
 import { cx } from '@tszhong0411/utils'
 import type { Metadata } from 'next'
-import { Inter, Noto_Sans_TC } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import '@/styles/globals.css'
 
 import Footer from '@/components/footer'
@@ -8,11 +8,11 @@ import Header from '@/components/header'
 
 import { site } from '@/config/site'
 
-import CustomToaster from './custom-toaster'
+import Providers from './providers'
 
-import { WithChildren } from '@/types'
-
-type RootLayoutProps = WithChildren
+type RootLayoutProps = {
+  children: React.ReactNode
+}
 
 export const metadata: Metadata = {
   title: {
@@ -77,27 +77,19 @@ const inter = Inter({
   subsets: ['latin'],
 })
 
-const notoSansTC = Noto_Sans_TC({
-  variable: '--font-noto-sans-tc',
-  weight: ['400', '500', '700', '900'],
-  subsets: ['latin'],
-})
-
 const RootLayout = (props: RootLayoutProps) => {
   const { children } = props
 
   return (
-    <html
-      lang='en-US'
-      className={cx(inter.variable, notoSansTC.variable, 'dark scroll-smooth')}
-    >
+    <html lang='en-US' className={cx(inter.variable, 'dark scroll-smooth')}>
       <body className='overflow-x-hidden bg-accent-bg font-default text-accent-fg'>
-        <Header />
-        <main className='relative mx-auto mb-16 max-w-4xl px-2 py-24 sm:px-8'>
-          {children}
-        </main>
-        <CustomToaster />
-        <Footer />
+        <Providers>
+          <Header />
+          <main className='relative mx-auto mb-16 max-w-4xl px-2 py-24 sm:px-8'>
+            {children}
+          </main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   )
