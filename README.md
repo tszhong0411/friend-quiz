@@ -19,7 +19,6 @@
 - Framework: [Next.js](https://nextjs.org/)
 - Deployment: [Vercel](https://vercel.com)
 - Favicon: [realfavicongenerator](https://realfavicongenerator.net/)
-- UI: [Mantine](https://mantine.dev)
 
 ## 👋 Running Locally
 
