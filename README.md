@@ -1,20 +1,8 @@
-<h1 align="center">
- Friend quiz cheat tool
-</h1>
-
 <p align="center">
-  <img src="https://socialify.git.ci/tszhong0411/friend-quiz/image?forks=1&issues=1&logo=https://honghong.me/images/projects/friend-quiz/logo.png&name=1&owner=1&pattern=Charlie%20Brown&pulls=1&stargazers=1&theme=Dark">
+  <img src="https://honghong.me/images/projects/friend-quiz/cover.png">
 </p>
 
-<p align="center">
-    <a href="https://friendquiz.honghong.me" target="blank">View Online</a>
-    ·
-    <a href="https://github.com/tszhong0411/friend-quiz/issues/new/choose">Report Bug</a>
-    ·
-    <a href="https://github.com/tszhong0411/friend-quiz/issues/new/choose">Request New Feature</a>
-</p>
-
-## 🌍 friendquiz.honghong.me
+## ⚡️ Tech Stack
 
 - Framework: [Next.js](https://nextjs.org/)
 - Deployment: [Vercel](https://vercel.com)
