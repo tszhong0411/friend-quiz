@@ -4,33 +4,35 @@
 
 ## ⚡️ Tech Stack
 
-- Framework: [Next.js](https://nextjs.org/)
-- Deployment: [Vercel](https://vercel.com)
-- Favicon: [realfavicongenerator](https://realfavicongenerator.net/)
+| Name       | Link                                                      |
+| ---------- | --------------------------------------------------------- |
+| Framework  | [Next.js](https://nextjs.org/)                            |
+| Deployment | [Vercel](https://vercel.com)                              |
+| Favicon    | [realfavicongenerator](https://realfavicongenerator.net/) |
 
-## 👋 Running Locally
+## 👋 Getting Started
 
 1. Clone the repository
 
-```sh
+```bash
 git clone https://github.com/tszhong0411/friend-quiz.git
 ```
 
-2. Go to the project directory
+2. Navigate to the project directory
 
-```sh
+```bash
 cd friend-quiz
 ```
 
 3. Install dependencies
 
-```sh
+```bash
 pnpm
 ```
 
 4. Run the development server
 
-```sh
+```bash
 pnpm dev
 ```
 
