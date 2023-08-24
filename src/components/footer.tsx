@@ -1,8 +1,4 @@
-import {
-  IconBrandInstagram,
-  IconBrandTwitter,
-  IconBrandYoutube,
-} from '@tabler/icons-react'
+import { Instagram, Twitter, Youtube } from 'lucide-react'
 
 type Links = {
   href: string
@@ -13,15 +9,15 @@ const Footer = () => {
   const links: Links = [
     {
       href: 'https://twitter.com/tszhong0411',
-      icon: <IconBrandTwitter size={22} stroke={2} />,
+      icon: <Twitter className='h-5 w-5' />,
     },
     {
       href: 'https://www.youtube.com/@tszhong0411',
-      icon: <IconBrandYoutube size={22} stroke={2} />,
+      icon: <Youtube className='h-5 w-5' />,
     },
     {
       href: 'https://www.instagram.com/tszhong0411/',
-      icon: <IconBrandInstagram size={22} stroke={2} />,
+      icon: <Instagram className='h-5 w-5' />,
     },
   ]
 

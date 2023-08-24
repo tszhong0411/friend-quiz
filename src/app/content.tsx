@@ -1,9 +1,19 @@
 'use client'
 
-import { Button, Input, Skeleton } from '@tszhong0411/ui'
-import { cx } from '@tszhong0411/utils'
 import React from 'react'
 import { toast } from 'react-hot-toast'
+
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Skeleton } from '@/components/ui/skeleton'
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table'
 
 import { site } from '@/config/site'
 
@@ -14,7 +24,9 @@ const Content = () => {
   const [loading, setLoading] = React.useState(false)
   const [answers, setAnswers] = React.useState<Answer[] | null>()
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
     if (!inputRef.current?.value)
       return toast.error('Please enter the quiz URL')
 
@@ -23,8 +35,8 @@ const Content = () => {
 
     const res = await fetch(
       `${site.apiURL}/friend-quiz/${encodeURIComponent(
-        inputRef.current?.value
-      )}`
+        inputRef.current?.value,
+      )}`,
     )
 
     if (!res.ok) {
@@ -63,7 +75,10 @@ const Content = () => {
             Enter your quiz URL, then click &apos;Get Answers&apos; to retrieve
             your quiz answers.
           </p>
-          <div className='mb-4 flex flex-col gap-4 sm:flex-row'>
+          <form
+            className='mb-4 flex flex-col gap-4 sm:flex-row'
+            onSubmit={handleSubmit}
+          >
             <div className='flex-1'>
               <Input
                 type='url'
@@ -72,10 +87,10 @@ const Content = () => {
                 ref={inputRef}
               />
             </div>
-            <Button onClick={handleSubmit} disabled={loading} type='button'>
+            <Button disabled={loading} type='submit'>
               Get Answers
             </Button>
-          </div>
+          </form>
         </div>
         <div className='space-y-4'>
           {loading && (
@@ -88,10 +103,7 @@ const Content = () => {
 
           {answers && <h2 className='text-xl font-bold'>Answers:</h2>}
           {answers?.map((answer, i) => (
-            <div
-              key={answer.title}
-              className='my-4 rounded-md border border-accent-2 p-4'
-            >
+            <div key={answer.title} className='my-4 rounded-md border p-4'>
               <div>
                 {i + 1}. {answer.title}
               </div>
@@ -112,30 +124,22 @@ const Content = () => {
           <h2 className='text-xl font-bold'>Supported sites:</h2>
 
           <div className='relative overflow-x-auto'>
-            <table className='w-full text-sm'>
-              <thead className='border-b border-accent-2 bg-accent-1 text-xs uppercase'>
-                <tr>
-                  <th className='px-6 py-3'>Site name</th>
-                  <th className='px-6 py-3'>Format</th>
-                </tr>
-              </thead>
-              <tbody>
-                {sortedSites.map(({ label, url }, i) => (
-                  <tr
-                    key={label}
-                    className={cx('bg-accent-1 text-center', {
-                      ['border-b border-accent-2']:
-                        sortedSites.length - 1 !== i,
-                    })}
-                  >
-                    <td className='whitespace-nowrap px-6 py-4 font-medium'>
-                      {label}
-                    </td>
-                    <td className='px-6 py-4 text-sm'>{url}</td>
-                  </tr>
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Site name</TableHead>
+                  <TableHead>Format</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {sortedSites.map(({ label, url }) => (
+                  <TableRow key={label}>
+                    <TableCell>{label}</TableCell>
+                    <TableCell>{url}</TableCell>
+                  </TableRow>
                 ))}
-              </tbody>
-            </table>
+              </TableBody>
+            </Table>
           </div>
         </div>
       </div>

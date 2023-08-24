@@ -15,7 +15,7 @@ const Providers = (props: ProvidersProps) => {
       <Toaster
         position='bottom-right'
         toastOptions={{
-          className: '!bg-accent-1 !text-accent-fg !border !border-accent-2',
+          className: '!bg-background !text-foreground !border',
         }}
       />
     </>
