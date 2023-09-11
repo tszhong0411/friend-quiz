@@ -9,10 +9,10 @@ type Site = {
   titleTemplate: string
   description: string
   favicons: IconDescriptor[]
-  supportedSites: {
+  supportedSites: Array<{
     label: string
     url: string
-  }[]
+  }>
 }
 
 export const site: Site = {
@@ -35,67 +35,67 @@ export const site: Site = {
       rel: 'icon',
       type: 'image/png',
       sizes: '16x16',
-      url: '/favicon/favicon-16x16.png',
+      url: '/favicon/favicon-16x16.png'
     },
     {
       rel: 'icon',
       type: 'image/png',
       sizes: '32x32',
-      url: '/favicon/favicon-32x32.png',
-    },
+      url: '/favicon/favicon-32x32.png'
+    }
   ],
   supportedSites: [
     {
       label: 'Buddymojo',
-      url: 'buddymojo.com/match/<id>',
+      url: 'buddymojo.com/match/<id>'
     },
     {
       label: 'Holaquiz',
-      url: 'holaquiz.com/sync-quiz/<id>',
+      url: 'holaquiz.com/sync-quiz/<id>'
     },
     {
       label: 'Hellomate',
-      url: 'hellomate.me/sync-quiz/<id>',
+      url: 'hellomate.me/sync-quiz/<id>'
     },
     {
       label: 'Bakequiz',
-      url: 'bakequiz.com/b/match/<id>',
+      url: 'bakequiz.com/b/match/<id>'
     },
     {
       label: 'Theshookers',
-      url: 'theshookers.com/sync-quiz/<id>',
+      url: 'theshookers.com/sync-quiz/<id>'
     },
     {
       label: 'Friend2021',
-      url: 'friend2021.com/d20/quiz/<id>',
+      url: 'friend2021.com/d20/quiz/<id>'
     },
     {
       label: 'Daremessage',
-      url: 'daremessage.xyz/quiz/<id>',
+      url: 'daremessage.xyz/quiz/<id>'
     },
     {
       label: 'Dudequiz',
-      url: 'www.dudequiz.com/start.html?quiz=<id>',
+      url: 'www.dudequiz.com/start.html?quiz=<id>'
     },
     {
       label: 'Helopal',
-      url: 'helopal.club/<code>/d/<id>',
+      url: 'helopal.club/<code>/d/<id>'
     },
     {
       label: 'Fun dare',
-      url: 'q.fun-dare.com/<code>/d/<id>',
+      url: 'q.fun-dare.com/<code>/d/<id>'
     },
     {
       label: 'Quizyourfriends',
-      url: 'www.quizyourfriends.com/take-quiz.php?id=<id>',
+      url: 'www.quizyourfriends.com/take-quiz.php?id=<id>'
     },
     {
       label: 'Matequiz',
-      url: 'www.matequiz.com/start.html?quiz=<id>',
+      url: 'www.matequiz.com/start.html?quiz=<id>'
     },
     {
       label: 'Realtest',
-      url: 'cn.realtest.me/rt/sync-quiz/<id>',
-    },
-  ],
+      url: 'cn.realtest.me/rt/sync-quiz/<id>'
+    }
+  ]
 }

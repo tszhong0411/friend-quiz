@@ -1,13 +1,11 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+
 import '@/styles/globals.css'
-
-import { cn } from '@/lib/utils'
-
 import Footer from '@/components/footer'
 import Header from '@/components/header'
-
 import { site } from '@/config/site'
+import { cn } from '@/lib/utils'
 
 import Providers from './providers'
 
@@ -19,7 +17,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
     default: site.title,
-    template: `%s ${site.titleTemplate}`,
+    template: `%s ${site.titleTemplate}`
   },
   description: site.description,
   robots: {
@@ -30,15 +28,15 @@ export const metadata: Metadata = {
       follow: true,
       'max-video-preview': -1,
       'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
+      'max-snippet': -1
+    }
   },
   manifest: '/favicon/site.webmanifest',
   twitter: {
     title: site.name,
     card: 'summary_large_image',
     site: '@tszhong0411',
-    creator: '@tszhong0411',
+    creator: '@tszhong0411'
   },
   keywords: site.keywords,
   themeColor: '#000',
@@ -56,9 +54,9 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: site.description,
-        type: 'image/png',
-      },
-    ],
+        type: 'image/png'
+      }
+    ]
   },
   icons: {
     icon: '/favicon/favicon.svg',
@@ -67,16 +65,16 @@ export const metadata: Metadata = {
       {
         url: '/favicon/apple-touch-icon.png',
         sizes: '180x180',
-        type: 'image/png',
-      },
+        type: 'image/png'
+      }
     ],
-    other: [...site.favicons],
-  },
+    other: [...site.favicons]
+  }
 }
 
 const inter = Inter({
   variable: '--font-inter',
-  subsets: ['latin'],
+  subsets: ['latin']
 })
 
 const RootLayout = (props: RootLayoutProps) => {

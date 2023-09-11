@@ -1,5 +1,6 @@
 'use client'
 
+import { Loader2 } from 'lucide-react'
 import React from 'react'
 import { toast } from 'react-hot-toast'
 
@@ -12,11 +13,9 @@ import {
   TableCell,
   TableHead,
   TableHeader,
-  TableRow,
+  TableRow
 } from '@/components/ui/table'
-
 import { site } from '@/config/site'
-
 import { Answer } from '@/types'
 
 const Content = () => {
@@ -35,8 +34,8 @@ const Content = () => {
 
     const res = await fetch(
       `${site.apiURL}/friend-quiz/${encodeURIComponent(
-        inputRef.current?.value,
-      )}`,
+        inputRef.current?.value
+      )}`
     )
 
     if (!res.ok) {
@@ -44,12 +43,10 @@ const Content = () => {
       return toast.error('Please enter the correct quiz URL')
     }
 
-    const answers = await res.json()
+    const result = (await res.json()) as Answer[]
 
     setLoading(false)
-    setAnswers(answers)
-
-    return
+    return setAnswers(result)
   }
 
   const sortedSites = site.supportedSites.sort((a, b) => {
@@ -88,6 +85,7 @@ const Content = () => {
               />
             </div>
             <Button disabled={loading} type='submit'>
+              {loading && <Loader2 size={16} className='mr-2 animate-spin' />}
               Get Answers
             </Button>
           </form>
@@ -95,7 +93,7 @@ const Content = () => {
         <div className='space-y-4'>
           {loading && (
             <div className='mb-8 space-y-4'>
-              {Array.from(Array(10).keys()).map((i) => (
+              {[...Array.from({ length: 10 }).keys()].map((i) => (
                 <Skeleton key={i} className='h-14' />
               ))}
             </div>

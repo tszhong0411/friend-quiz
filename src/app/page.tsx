@@ -7,8 +7,8 @@ import Content from './content'
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: site.url,
-  },
+    canonical: site.url
+  }
 }
 
 const HomePage = () => {

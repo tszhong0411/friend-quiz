@@ -1,65 +1,56 @@
 {
-  "name": "friend-quiz",
   "private": true,
+  "name": "friend-quiz",
   "version": "0.0.0",
-  "license": "MIT",
-  "type": "module",
   "description": "Friend quiz cheat tool",
+  "license": "MIT",
   "author": "Lai Tsz Hong <info@honghong.me> (https://github.com/tszhong0411/)",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tszhong0411/friend-quiz.git"
   },
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "dev": "next dev",
+    "format": "prettier -w .",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "format": "prettier -w .",
-    "type-check": "tsc --noEmit",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "start": "next start",
+    "type-check": "tsc --noEmit"
   },
-  "prettier": "@tszhong0411/prettier-config",
   "dependencies": {
     "@radix-ui/react-slot": "^1.0.2",
-    "@tszhong0411/eslint-config": "^1.0.15",
-    "@tszhong0411/prettier-config": "^1.0.5",
-    "@tszhong0411/tsconfig": "^1.0.1",
+    "@tszhong0411/eslint-config": "^1.0.23",
+    "@tszhong0411/prettier-config": "^1.0.7",
+    "@tszhong0411/tsconfig": "^1.0.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "jsdom": "^22.1.0",
-    "lucide-react": "^0.268.0",
+    "lucide-react": "^0.276.0",
     "next": "13.4.19",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hot-toast": "^2.4.1",
     "tailwind-merge": "^1.14.0",
-    "tailwindcss-animate": "^1.0.6"
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.7.1",
     "@commitlint/config-conventional": "^17.7.0",
-    "@types/node": "20.5.4",
+    "@types/node": "20.6.0",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "^10.4.15",
-    "eslint": "^8.47.0",
+    "eslint": "^8.49.0",
     "eslint-config-next": "^13.4.19",
     "husky": "8.0.3",
     "lint-staged": "14.0.1",
-    "postcss": "^8.4.28",
-    "prettier": "3.0.2",
+    "postcss": "^8.4.29",
+    "prettier": "3.0.3",
     "tailwindcss": "^3.3.3",
     "typescript": "5.2.2"
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "eslint"
-    ],
-    "*.{json,css,scss,md,mdx,js,jsx,ts,tsx,cjs,mjs}": [
-      "prettier -c"
-    ]
   },
   "eslintConfig": {
     "extends": [
@@ -70,5 +61,14 @@
       "project": "./tsconfig.json",
       "ecmaVersion": "latest"
     }
-  }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint"
+    ],
+    "*.{json,css,scss,md,mdx,js,jsx,ts,tsx,cjs,mjs}": [
+      "prettier -c"
+    ]
+  },
+  "prettier": "@tszhong0411/prettier-config"
 }

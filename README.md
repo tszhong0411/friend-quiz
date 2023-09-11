@@ -27,13 +27,13 @@ cd friend-quiz
 3. Install dependencies
 
 ```bash
-pnpm
+bun install
 ```
 
 4. Run the development server
 
 ```bash
-pnpm dev
+bun run dev
 ```
 
 <hr>
