@@ -27,13 +27,13 @@ cd friend-quiz
 3. Install dependencies
 
 ```bash
-bun install
+yarn install
 ```
 
 4. Run the development server
 
 ```bash
-bun run dev
+yarn dev
 ```
 
 <hr>
