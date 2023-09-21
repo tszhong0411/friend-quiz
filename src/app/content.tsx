@@ -16,7 +16,7 @@ import {
   TableRow
 } from '@/components/ui/table'
 import { site } from '@/config/site'
-import { Answer } from '@/types'
+import { type Answer } from '@/types'
 
 const Content = () => {
   const inputRef = React.useRef<HTMLInputElement>(null)
