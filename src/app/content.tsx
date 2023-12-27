@@ -1,6 +1,6 @@
 'use client'
 
-import { Loader2 } from 'lucide-react'
+import { IconLoader2 } from '@tabler/icons-react'
 import React from 'react'
 import { toast } from 'react-hot-toast'
 
@@ -62,15 +62,15 @@ const Content = () => {
   })
 
   return (
-    <div className='flex items-center justify-center bg-black text-white'>
+    <div className='flex items-center justify-center text-white'>
       <div className='w-full max-w-2xl space-y-12 px-4'>
         <div>
           <h1 className='mb-4 text-center text-4xl font-bold'>
             Friend Quiz Cheating Tool
           </h1>
           <p className='mb-8 text-center'>
-            Enter your quiz URL, then click &apos;Get Answers&apos; to retrieve
-            your quiz answers.
+            Enter your quiz URL, then click &apos;Get Answers&apos; to reveal
+            the quiz answers.
           </p>
           <form
             className='mb-4 flex flex-col gap-4 sm:flex-row'
@@ -85,7 +85,9 @@ const Content = () => {
               />
             </div>
             <Button disabled={loading} type='submit'>
-              {loading && <Loader2 size={16} className='mr-2 animate-spin' />}
+              {loading && (
+                <IconLoader2 size={16} className='mr-2 animate-spin' />
+              )}
               Get Answers
             </Button>
           </form>
