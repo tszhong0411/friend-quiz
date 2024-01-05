@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     locale: 'en-US',
     images: [
       {
-        url: 'https://honghong.me/images/projects/friend-quiz/cover.png',
+        url: 'https://friendquiz.honghong.me/og.png',
         width: 1200,
         height: 630,
         alt: site.description,
