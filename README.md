@@ -27,13 +27,13 @@ cd friend-quiz
 3. Install dependencies
 
 ```bash
-yarn install
+pnpm install
 ```
 
 4. Run the development server
 
 ```bash
-yarn dev
+pnpm dev
 ```
 
 <hr>
