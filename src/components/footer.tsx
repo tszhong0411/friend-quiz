@@ -1,8 +1,5 @@
-import {
-  IconBrandInstagram,
-  IconBrandX,
-  IconBrandYoutube
-} from '@tabler/icons-react'
+import { SiGithub, SiInstagram, SiX } from '@icons-pack/react-simple-icons'
+import { Link } from '@tszhong0411/ui'
 
 type Links = Array<{
   href: string
@@ -13,15 +10,15 @@ const Footer = () => {
   const links: Links = [
     {
       href: 'https://twitter.com/tszhong0411',
-      icon: <IconBrandX size={20} />
+      icon: <SiX size={20} />
     },
     {
-      href: 'https://www.youtube.com/@tszhong0411',
-      icon: <IconBrandYoutube size={20} />
+      href: 'https://github.com/tszhong0411',
+      icon: <SiGithub size={20} />
     },
     {
       href: 'https://www.instagram.com/tszhong0411/',
-      icon: <IconBrandInstagram size={20} />
+      icon: <SiInstagram size={20} />
     }
   ]
 
@@ -30,16 +27,11 @@ const Footer = () => {
       <div className='flex items-center justify-between'>
         <p className='mb-4 text-sm'>© {new Date().getFullYear()} Hong</p>
 
-        <div className='flex items-center gap-4'>
+        <div className='flex items-center gap-6'>
           {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              target='_blank'
-              rel='noopener noreferrer'
-            >
+            <Link key={link.href} href={link.href}>
               {link.icon}
-            </a>
+            </Link>
           ))}
         </div>
       </div>

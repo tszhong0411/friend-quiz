@@ -1,22 +1,82 @@
 'use client'
 
 import { IconLoader2 } from '@tabler/icons-react'
-import React from 'react'
-import { toast } from 'react-hot-toast'
-
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Skeleton } from '@/components/ui/skeleton'
 import {
+  Button,
+  Input,
+  Skeleton,
   Table,
   TableBody,
   TableCell,
   TableHead,
   TableHeader,
   TableRow
-} from '@/components/ui/table'
-import { site } from '@/config/site'
-import { type Answer } from '@/types'
+} from '@tszhong0411/ui'
+import * as React from 'react'
+import { toast } from 'sonner'
+
+import { API_URL } from '@/lib/constants'
+
+type Answer = {
+  title: string
+  content: string
+  image?: string
+}
+
+const supportedSites = [
+  {
+    label: 'Buddymojo',
+    url: 'buddymojo.com/match/<id>'
+  },
+  {
+    label: 'Holaquiz',
+    url: 'holaquiz.com/sync-quiz/<id>'
+  },
+  {
+    label: 'Hellomate',
+    url: 'hellomate.me/sync-quiz/<id>'
+  },
+  {
+    label: 'Bakequiz',
+    url: 'bakequiz.com/b/match/<id>'
+  },
+  {
+    label: 'Theshookers',
+    url: 'theshookers.com/sync-quiz/<id>'
+  },
+  {
+    label: 'Friend2021',
+    url: 'friend2021.com/d20/quiz/<id>'
+  },
+  {
+    label: 'Daremessage',
+    url: 'daremessage.xyz/quiz/<id>'
+  },
+  {
+    label: 'Dudequiz',
+    url: 'www.dudequiz.com/start.html?quiz=<id>'
+  },
+  {
+    label: 'Helopal',
+    url: 'helopal.club/<code>/d/<id>'
+  },
+  {
+    label: 'Fun dare',
+    url: 'q.fun-dare.com/<code>/d/<id>'
+  },
+  {
+    label: 'Quizyourfriends',
+    url: 'www.quizyourfriends.com/take-quiz.php?id=<id>'
+  },
+  {
+    label: 'Matequiz',
+    url: 'www.matequiz.com/start.html?quiz=<id>'
+  },
+  {
+    label: 'Realtest',
+    url: 'cn.realtest.me/rt/sync-quiz/<id>'
+  }
+]
 
 const Content = () => {
   const inputRef = React.useRef<HTMLInputElement>(null)
@@ -33,9 +93,7 @@ const Content = () => {
     setAnswers(null)
 
     const res = await fetch(
-      `${site.apiURL}/friend-quiz/${encodeURIComponent(
-        inputRef.current?.value
-      )}`
+      `${API_URL}/friend-quiz/${encodeURIComponent(inputRef.current?.value)}`
     )
 
     if (!res.ok) {
@@ -49,15 +107,13 @@ const Content = () => {
     return setAnswers(result)
   }
 
-  const sortedSites = site.supportedSites.sort((a, b) => {
+  const sortedSites = supportedSites.sort((a, b) => {
     const labelA = a.label.toUpperCase()
     const labelB = b.label.toUpperCase()
-    if (labelA < labelB) {
-      return -1
-    }
-    if (labelA > labelB) {
-      return 1
-    }
+
+    if (labelA < labelB) return -1
+    if (labelA > labelB) return 1
+
     return 0
   })
 
@@ -69,8 +125,9 @@ const Content = () => {
             Friend Quiz Cheating Tool
           </h1>
           <p className='mb-8 text-center'>
-            Enter your quiz URL, then click &apos;Get Answers&apos; to reveal
-            the quiz answers.
+            Enter your quiz URL, then click{' '}
+            <span className='font-bold'>Get Answers</span> to reveal the quiz
+            answers.
           </p>
           <form
             className='mb-4 flex flex-col gap-4 sm:flex-row'
