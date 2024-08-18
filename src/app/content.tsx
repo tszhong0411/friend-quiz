@@ -78,6 +78,16 @@ const supportedSites = [
   }
 ]
 
+const sortedSites = supportedSites.sort((a, b) => {
+  const labelA = a.label.toUpperCase()
+  const labelB = b.label.toUpperCase()
+
+  if (labelA < labelB) return -1
+  if (labelA > labelB) return 1
+
+  return 0
+})
+
 const Content = () => {
   const inputRef = React.useRef<HTMLInputElement>(null)
   const [loading, setLoading] = React.useState(false)
@@ -106,16 +116,6 @@ const Content = () => {
     setLoading(false)
     return setAnswers(result)
   }
-
-  const sortedSites = supportedSites.sort((a, b) => {
-    const labelA = a.label.toUpperCase()
-    const labelB = b.label.toUpperCase()
-
-    if (labelA < labelB) return -1
-    if (labelA > labelB) return 1
-
-    return 0
-  })
 
   return (
     <div className='flex items-center justify-center text-white'>
