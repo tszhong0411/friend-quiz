@@ -1,6 +1,5 @@
 'use client'
 
-import { IconLoader2 } from '@tabler/icons-react'
 import {
   Button,
   Input,
@@ -10,10 +9,11 @@ import {
   TableCell,
   TableHead,
   TableHeader,
-  TableRow
+  TableRow,
+  toast
 } from '@tszhong0411/ui'
-import * as React from 'react'
-import { toast } from 'sonner'
+import { Loader2Icon } from 'lucide-react'
+import { useRef, useState } from 'react'
 
 import { API_URL } from '@/lib/constants'
 
@@ -89,50 +89,45 @@ const sortedSites = supportedSites.sort((a, b) => {
 })
 
 const Content = () => {
-  const inputRef = React.useRef<HTMLInputElement>(null)
-  const [loading, setLoading] = React.useState(false)
-  const [answers, setAnswers] = React.useState<Answer[] | null>()
+  const inputRef = useRef<HTMLInputElement>(null)
+  const [loading, setLoading] = useState(false)
+  const [answers, setAnswers] = useState<Answer[] | null>()
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    if (!inputRef.current?.value)
-      return toast.error('Please enter the quiz URL')
+    if (!inputRef.current?.value) {
+      toast.error('Please enter the quiz URL')
+      return
+    }
 
     setLoading(true)
     setAnswers(null)
 
-    const res = await fetch(
-      `${API_URL}/friend-quiz/${encodeURIComponent(inputRef.current?.value)}`
-    )
+    const res = await fetch(`${API_URL}/friend-quiz/${encodeURIComponent(inputRef.current.value)}`)
 
     if (!res.ok) {
       setLoading(false)
-      return toast.error('Please enter the correct quiz URL')
+      toast.error('Please enter the correct quiz URL')
+      return
     }
 
     const result = (await res.json()) as Answer[]
 
     setLoading(false)
-    return setAnswers(result)
+    setAnswers(result)
   }
 
   return (
     <div className='flex items-center justify-center text-white'>
       <div className='w-full max-w-2xl space-y-12 px-4'>
         <div>
-          <h1 className='mb-4 text-center text-4xl font-bold'>
-            Friend Quiz Cheating Tool
-          </h1>
+          <h1 className='mb-4 text-center text-4xl font-bold'>Friend Quiz Cheating Tool</h1>
           <p className='mb-8 text-center'>
-            Enter your quiz URL, then click{' '}
-            <span className='font-bold'>Get Answers</span> to reveal the quiz
-            answers.
+            Enter your quiz URL, then click <span className='font-bold'>Get Answers</span> to reveal
+            the quiz answers.
           </p>
-          <form
-            className='mb-4 flex flex-col gap-4 sm:flex-row'
-            onSubmit={handleSubmit}
-          >
+          <form className='mb-4 flex flex-col gap-4 sm:flex-row' onSubmit={handleSubmit}>
             <div className='flex-1'>
               <Input
                 type='url'
@@ -142,30 +137,28 @@ const Content = () => {
               />
             </div>
             <Button disabled={loading} type='submit'>
-              {loading && (
-                <IconLoader2 size={16} className='mr-2 animate-spin' />
-              )}
+              {loading ? <Loader2Icon size={16} className='mr-2 animate-spin' /> : null}
               Get Answers
             </Button>
           </form>
         </div>
         <div className='space-y-4'>
-          {loading && (
+          {loading ? (
             <div className='mb-8 space-y-4'>
               {[...Array.from({ length: 10 }).keys()].map((i) => (
                 <Skeleton key={i} className='h-14' />
               ))}
             </div>
-          )}
+          ) : null}
 
-          {answers && <h2 className='text-xl font-bold'>Answers:</h2>}
+          {answers ? <h2 className='text-xl font-bold'>Answers:</h2> : null}
           {answers?.map((answer, i) => (
             <div key={answer.title} className='my-4 rounded-md border p-4'>
               <div>
                 {i + 1}. {answer.title}
               </div>
-              {answer.image && (
-                // eslint-disable-next-line @next/next/no-img-element
+              {answer.image ? (
+                // eslint-disable-next-line @next/next/no-img-element -- third party image
                 <img
                   src={answer.image}
                   width={120}
@@ -173,7 +166,7 @@ const Content = () => {
                   className='my-2 rounded-sm'
                   alt={`Question ${i + 1}`}
                 />
-              )}
+              ) : null}
               <div>{answer.content}</div>
             </div>
           ))}

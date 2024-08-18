@@ -1,17 +1,12 @@
+import { Toaster } from '@tszhong0411/ui'
 import { cn } from '@tszhong0411/utils'
 import { GeistSans } from 'geist/font/sans'
 import type { Metadata, Viewport } from 'next'
-import { Toaster } from 'sonner'
 
 import '@/styles/globals.css'
 import Footer from '@/components/footer'
 import Header from '@/components/header'
-import {
-  SITE_DESCRIPTION,
-  SITE_NAME,
-  SITE_TITLE,
-  SITE_URL
-} from '@/lib/constants'
+import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from '@/lib/constants'
 
 type RootLayoutProps = {
   children: React.ReactNode
@@ -126,12 +121,10 @@ const RootLayout = (props: RootLayoutProps) => {
   const { children } = props
 
   return (
-    <html lang='en-US' className={cn(GeistSans.variable, 'scroll-smooth')}>
+    <html lang='en-US' className={cn(GeistSans.variable, 'dark scroll-smooth')}>
       <body>
         <Header />
-        <main className='relative mx-auto mb-16 max-w-4xl px-2 py-24 sm:px-8'>
-          {children}
-        </main>
+        <main className='relative mx-auto mb-16 max-w-4xl px-2 py-24 sm:px-8'>{children}</main>
         <Toaster theme='dark' />
         <Footer />
       </body>

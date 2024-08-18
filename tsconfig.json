@@ -1,13 +1,24 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
-    "jsx": "preserve",
     "baseUrl": ".",
+    "jsx": "preserve",
     "paths": {
       "@/*": ["src/*"]
-    }
+    },
+    "plugins": [{ "name": "next" }]
   },
   "exclude": ["node_modules"],
   "extends": "@tszhong0411/tsconfig/nextjs.json",
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "prettier.config.js",
+    "eslint.config.mjs",
+    "next.config.js",
+    "postcss.config.mjs",
+    ".commitlintrc.js"
+  ]
 }

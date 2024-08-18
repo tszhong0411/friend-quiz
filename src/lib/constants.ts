@@ -1,12 +1,8 @@
 export const SITE_URL =
-  process.env.NODE_ENV === 'production'
-    ? 'https://friendquiz.honghong.me'
-    : 'http://localhost:3000'
+  process.env.NODE_ENV === 'production' ? 'https://friendquiz.honghong.me' : 'http://localhost:3000'
 
 export const API_URL =
-  process.env.NODE_ENV === 'production'
-    ? 'https://api.honghong.me'
-    : 'http://localhost:8080'
+  process.env.NODE_ENV === 'production' ? 'https://api.honghong.me' : 'http://localhost:1234'
 export const SITE_NAME = 'Friend Quiz Cheating Tool'
 export const SITE_TITLE = 'Friend Quiz Cheating Tool'
 export const SITE_DESCRIPTION =
